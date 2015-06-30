@@ -14,6 +14,7 @@ namespace CIS2008
 {
     public partial class frm_Register : Form
     {
+///
         public frm_Register()
         {
             InitializeComponent();

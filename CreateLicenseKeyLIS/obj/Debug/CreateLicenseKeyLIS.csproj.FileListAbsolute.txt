@@ -1,0 +1,16 @@
+D:\Setup\MyLis\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.csprojResolveAssemblyReference.cache
+D:\Setup\MyLis\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.Properties.Resources.resources
+D:\Setup\MyLis\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.csproj.GenerateResource.Cache
+D:\Setup\MyLis\CreateLicenseKeyLIS\bin\Debug\CreateLicenseKeyLIS.exe
+D:\Setup\MyLis\CreateLicenseKeyLIS\bin\Debug\CreateLicenseKeyLIS.pdb
+D:\Setup\MyLis\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.exe
+D:\Setup\MyLis\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.pdb
+D:\Setup\MyLis\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.Form1.resources
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\bin\Debug\CreateLicenseKeyLIS.exe
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\bin\Debug\CreateLicenseKeyLIS.pdb
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.csprojResolveAssemblyReference.cache
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.Form1.resources
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.Properties.Resources.resources
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.csproj.GenerateResource.Cache
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.exe
+C:\Users\hadk\Documents\GitHub\UINew\CreateLicenseKeyLIS\obj\Debug\CreateLicenseKeyLIS.pdb

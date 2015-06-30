@@ -138,6 +138,9 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                     int vIsFinal;
                     if (chkIsFinal.Checked) vIsFinal = 1;
                     else vIsFinal = -1;
+                    int dangkyxn;
+                    if (chkDangKyXN.Checked) dangkyxn = 1;
+                    else dangkyxn = -1;
                     //if (txtAge.Text.Trim() != "")
                     //{
                     //    if (Numbers.IsNumber(txtAge.Text.Trim())) vAge = Utility.Int32Dbnull(txtAge.Text, -1);
@@ -173,7 +176,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                 mv_DTPatientInfor = SPs.SpGetPatientInfoAll(dtpTestDateFrom.Value.ToShortDateString(),
                                                                 dtpTestDateTo.Value.ToShortDateString(), strTestTypeId,
                                                                 vBarcode, vPid, vName, vAge, sex, objectTypeId,
-                                                                departmentId, "", vIsFinal, globalVariables.UserName)
+                                                                departmentId, "", vIsFinal, globalVariables.UserName, dangkyxn)
                         .GetDataSet().Tables[0];
                     if (!mv_DTPatientInfor.Columns.Contains("CLSID"))
                         mv_DTPatientInfor.Columns.Add("CLSID", typeof (Int32));
@@ -3251,6 +3254,22 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
         private void txtPID_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) cmdSearch.PerformClick();
+        }
+
+        private void chkIsFinal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkIsFinal.Checked)
+            {
+                chkDangKyXN.Checked = false;
+            }
+        }
+
+        private void chkDangKyXN_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDangKyXN.Checked)
+            {
+                chkIsFinal.Checked = false;
+            }
         }
 
     }

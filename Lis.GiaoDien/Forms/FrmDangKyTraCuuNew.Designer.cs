@@ -33,12 +33,12 @@
             Janus.Windows.GridEX.GridEXLayout grdTestType_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdPatients_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdTestTypeRegList_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel5 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel1 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
             Janus.Windows.GridEX.GridEXLayout grdResultDetail_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdTestInfo_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdTestInfoModification_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdResultModification_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel6 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel2 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
             this.tabAll = new Janus.Windows.UI.Tab.UITab();
             this.tabPatientInfo = new Janus.Windows.UI.Tab.UITabPage();
             this.btnConfig = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.grdTestType = new Janus.Windows.GridEX.GridEX();
             this.uiGroupBox5 = new Janus.Windows.EditControls.UIGroupBox();
+            this.chkDangKyXN = new Janus.Windows.EditControls.UICheckBox();
             this.dtpDatePrint = new Janus.Windows.CalendarCombo.CalendarCombo();
             this.label2 = new System.Windows.Forms.Label();
             this.rbtDaIn = new System.Windows.Forms.RadioButton();
@@ -396,6 +397,7 @@
             // 
             // uiGroupBox5
             // 
+            this.uiGroupBox5.Controls.Add(this.chkDangKyXN);
             this.uiGroupBox5.Controls.Add(this.dtpDatePrint);
             this.uiGroupBox5.Controls.Add(this.label2);
             this.uiGroupBox5.Controls.Add(this.rbtDaIn);
@@ -413,6 +415,18 @@
             this.uiGroupBox5.Size = new System.Drawing.Size(528, 100);
             this.uiGroupBox5.TabIndex = 55;
             // 
+            // chkDangKyXN
+            // 
+            this.chkDangKyXN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkDangKyXN.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDangKyXN.ForeColor = System.Drawing.Color.Red;
+            this.chkDangKyXN.Location = new System.Drawing.Point(310, 58);
+            this.chkDangKyXN.Name = "chkDangKyXN";
+            this.chkDangKyXN.Size = new System.Drawing.Size(241, 18);
+            this.chkDangKyXN.TabIndex = 57;
+            this.chkDangKyXN.Text = "Bệnh nhân đăng ký XN theo ngày";
+            this.chkDangKyXN.CheckedChanged += new System.EventHandler(this.chkDangKyXN_CheckedChanged);
+            // 
             // dtpDatePrint
             // 
             this.dtpDatePrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -424,7 +438,7 @@
             this.dtpDatePrint.DropDownCalendar.FirstMonth = new System.DateTime(2013, 12, 1, 0, 0, 0, 0);
             this.dtpDatePrint.DropDownCalendar.Name = "";
             this.dtpDatePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDatePrint.Location = new System.Drawing.Point(405, 76);
+            this.dtpDatePrint.Location = new System.Drawing.Point(309, 76);
             this.dtpDatePrint.Name = "dtpDatePrint";
             this.dtpDatePrint.ShowUpDown = true;
             this.dtpDatePrint.Size = new System.Drawing.Size(120, 23);
@@ -434,7 +448,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(301, 76);
+            this.label2.Location = new System.Drawing.Point(205, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 19);
             this.label2.TabIndex = 55;
@@ -480,19 +494,20 @@
             this.chkIsFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkIsFinal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkIsFinal.ForeColor = System.Drawing.Color.Blue;
-            this.chkIsFinal.Location = new System.Drawing.Point(311, 50);
+            this.chkIsFinal.Location = new System.Drawing.Point(310, 40);
             this.chkIsFinal.Name = "chkIsFinal";
-            this.chkIsFinal.Size = new System.Drawing.Size(206, 23);
+            this.chkIsFinal.Size = new System.Drawing.Size(206, 20);
             this.chkIsFinal.TabIndex = 51;
             this.chkIsFinal.Text = "Bệnh nhân hoàn tất XN";
+            this.chkIsFinal.CheckedChanged += new System.EventHandler(this.chkIsFinal_CheckedChanged);
             // 
             // cmdSearch
             // 
             this.cmdSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdSearch.Image = ((System.Drawing.Image)(resources.GetObject("cmdSearch.Image")));
-            this.cmdSearch.Location = new System.Drawing.Point(309, 12);
+            this.cmdSearch.Location = new System.Drawing.Point(310, 7);
             this.cmdSearch.Name = "cmdSearch";
-            this.cmdSearch.Size = new System.Drawing.Size(208, 38);
+            this.cmdSearch.Size = new System.Drawing.Size(208, 33);
             this.cmdSearch.TabIndex = 50;
             this.cmdSearch.Text = "Tìm kiếm (F3)";
             this.cmdSearch.ToolTipText = "Tìm kiếm thông tin bệnh nhân hoặc nhấn phím tắt F3";
@@ -777,14 +792,14 @@
             // 
             this.uiStatusBar1.Location = new System.Drawing.Point(0, 314);
             this.uiStatusBar1.Name = "uiStatusBar1";
-            uiStatusBarPanel5.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel5.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel5.Key = "";
-            uiStatusBarPanel5.ProgressBarValue = 0;
-            uiStatusBarPanel5.Text = "Tick: Đăng ký chạy lại test đối với các loại XN hai chiều";
-            uiStatusBarPanel5.Width = 368;
+            uiStatusBarPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel1.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel1.Key = "";
+            uiStatusBarPanel1.ProgressBarValue = 0;
+            uiStatusBarPanel1.Text = "Tick: Đăng ký chạy lại test đối với các loại XN hai chiều";
+            uiStatusBarPanel1.Width = 368;
             this.uiStatusBar1.Panels.AddRange(new Janus.Windows.UI.StatusBar.UIStatusBarPanel[] {
-            uiStatusBarPanel5});
+            uiStatusBarPanel1});
             this.uiStatusBar1.Size = new System.Drawing.Size(605, 23);
             this.uiStatusBar1.TabIndex = 0;
             this.uiStatusBar1.VisualStyle = Janus.Windows.UI.VisualStyle.VS2005;
@@ -1256,14 +1271,14 @@
             // 
             this.uiStatusBar2.Location = new System.Drawing.Point(0, 517);
             this.uiStatusBar2.Name = "uiStatusBar2";
-            uiStatusBarPanel6.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel6.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel6.Key = "";
-            uiStatusBarPanel6.ProgressBarValue = 0;
-            uiStatusBarPanel6.Text = "Sửa Barcode trực tiếp trên lưới để chuyển BN";
-            uiStatusBarPanel6.Width = 307;
+            uiStatusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel2.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel2.Key = "";
+            uiStatusBarPanel2.ProgressBarValue = 0;
+            uiStatusBarPanel2.Text = "Sửa Barcode trực tiếp trên lưới để chuyển BN";
+            uiStatusBarPanel2.Width = 307;
             this.uiStatusBar2.Panels.AddRange(new Janus.Windows.UI.StatusBar.UIStatusBarPanel[] {
-            uiStatusBarPanel6});
+            uiStatusBarPanel2});
             this.uiStatusBar2.Size = new System.Drawing.Size(1098, 23);
             this.uiStatusBar2.TabIndex = 46;
             this.uiStatusBar2.VisualStyle = Janus.Windows.UI.VisualStyle.VS2005;
@@ -1666,6 +1681,7 @@
         internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.TextBox txtName;
         internal Janus.Windows.GridEX.GridEX grdTestType;
+        internal Janus.Windows.EditControls.UICheckBox chkDangKyXN;
 
 
     }

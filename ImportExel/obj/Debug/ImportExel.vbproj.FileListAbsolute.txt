@@ -18,3 +18,13 @@ C:\Users\hadk\Documents\GitHub\UINew\ImportExel\obj\Debug\ImportExel.vbproj.Gene
 C:\Users\hadk\Documents\GitHub\UINew\ImportExel\obj\Debug\ImportExel.dll
 C:\Users\hadk\Documents\GitHub\UINew\ImportExel\obj\Debug\ImportExel.xml
 C:\Users\hadk\Documents\GitHub\UINew\ImportExel\obj\Debug\ImportExel.pdb
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\ImportExel.dll
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\ImportExel.pdb
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\ImportExel.xml
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.vbprojResolveAssemblyReference.cache
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.FrmImportFromExcel.resources
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.Resources.resources
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.vbproj.GenerateResource.Cache
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.dll
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.xml
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.pdb

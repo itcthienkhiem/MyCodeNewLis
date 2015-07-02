@@ -285,6 +285,7 @@
             this.cboHos_Status.Size = new System.Drawing.Size(315, 21);
             this.cboHos_Status.TabIndex = 16;
             this.cboHos_Status.Text = "Tình trạng";
+            this.cboHos_Status.Visible = false;
             // 
             // label6
             // 
@@ -295,6 +296,7 @@
             this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 15;
             this.label6.Text = "Tình trạng";
+            this.label6.Visible = false;
             // 
             // label1
             // 

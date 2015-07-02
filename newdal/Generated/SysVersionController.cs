@@ -80,7 +80,7 @@ namespace LIS.DAL
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string SFileName,string SRarFileName,byte[] ObjData,string SVersion,short? IntRar,short? IntPatch,DateTime? TUpdatedDate,int? DblCapacity,string SDesc)
+	    public void Insert(string SFileName,string SRarFileName,byte[] ObjData,string SVersion,short? IntRar,short? IntPatch,DateTime? TUpdatedDate,int? DblCapacity,string SDesc,int? IsUpdate)
 	    {
 		    SysVersion item = new SysVersion();
 		    
@@ -102,6 +102,8 @@ namespace LIS.DAL
             
             item.SDesc = SDesc;
             
+            item.IsUpdate = IsUpdate;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -110,7 +112,7 @@ namespace LIS.DAL
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int PkIntID,string SFileName,string SRarFileName,byte[] ObjData,string SVersion,short? IntRar,short? IntPatch,DateTime? TUpdatedDate,int? DblCapacity,string SDesc)
+	    public void Update(int PkIntID,string SFileName,string SRarFileName,byte[] ObjData,string SVersion,short? IntRar,short? IntPatch,DateTime? TUpdatedDate,int? DblCapacity,string SDesc,int? IsUpdate)
 	    {
 		    SysVersion item = new SysVersion();
 	        item.MarkOld();
@@ -135,6 +137,8 @@ namespace LIS.DAL
 			item.DblCapacity = DblCapacity;
 				
 			item.SDesc = SDesc;
+				
+			item.IsUpdate = IsUpdate;
 				
 	        item.Save(UserName);
 	    }

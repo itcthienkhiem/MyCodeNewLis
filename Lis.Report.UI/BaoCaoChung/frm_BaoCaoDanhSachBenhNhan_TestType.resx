@@ -118,9 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="gridResult_DesignTimeLayout.LayoutString" xml:space="preserve">
-    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="Patient_ID"&gt;&lt;Caption&gt;Patient_ID&lt;/Caption&gt;&lt;DataMember&gt;Patient_ID&lt;/DataMember&gt;&lt;Key&gt;Patient_ID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column0&gt;&lt;Column1 ID="Patient_Name"&gt;&lt;Caption&gt;Tên Bệnh Nhân&lt;/Caption&gt;&lt;DataMember&gt;Patient_Name&lt;/DataMember&gt;&lt;Key&gt;Patient_Name&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;173&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="AGE"&gt;&lt;Caption&gt;Tuổi&lt;/Caption&gt;&lt;DataMember&gt;AGE&lt;/DataMember&gt;&lt;Key&gt;AGE&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;63&lt;/Width&gt;&lt;/Column2&gt;&lt;Column3 ID="Sex"&gt;&lt;Caption&gt;Giới Tính&lt;/Caption&gt;&lt;DataMember&gt;Sex&lt;/DataMember&gt;&lt;Key&gt;Sex&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;72&lt;/Width&gt;&lt;/Column3&gt;&lt;Column4 ID="Address"&gt;&lt;Caption&gt;Địa Chỉ&lt;/Caption&gt;&lt;DataMember&gt;Address&lt;/DataMember&gt;&lt;Key&gt;Address&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;187&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="Insurance_Num"&gt;&lt;Caption&gt;Đối Tượng&lt;/Caption&gt;&lt;DataMember&gt;Insurance_Num&lt;/DataMember&gt;&lt;Key&gt;Insurance_Num&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;/Column5&gt;&lt;Column6 ID="Department"&gt;&lt;Caption&gt;Khoa&lt;/Caption&gt;&lt;DataMember&gt;Department&lt;/DataMember&gt;&lt;Key&gt;Department&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Width&gt;133&lt;/Width&gt;&lt;/Column6&gt;&lt;Column7 ID="Diagnostic"&gt;&lt;Caption&gt;Chẩn Đoán&lt;/Caption&gt;&lt;DataMember&gt;Diagnostic&lt;/DataMember&gt;&lt;Key&gt;Diagnostic&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;Width&gt;119&lt;/Width&gt;&lt;/Column7&gt;&lt;Column8 ID="AllResult"&gt;&lt;Caption&gt;Kết Quả&lt;/Caption&gt;&lt;DataMember&gt;AllResult&lt;/DataMember&gt;&lt;Key&gt;AllResult&lt;/Key&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;/Column8&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;4&lt;/ColIndex&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="PID"&gt;&lt;Caption&gt;PID&lt;/Caption&gt;&lt;DataMember&gt;PID&lt;/DataMember&gt;&lt;Key&gt;PID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;/Column0&gt;&lt;Column1 ID="Patient_ID"&gt;&lt;Caption&gt;Patient_ID&lt;/Caption&gt;&lt;DataMember&gt;Patient_ID&lt;/DataMember&gt;&lt;Key&gt;Patient_ID&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column1&gt;&lt;Column2 ID="Patient_Name"&gt;&lt;Caption&gt;Tên Bệnh Nhân&lt;/Caption&gt;&lt;DataMember&gt;Patient_Name&lt;/DataMember&gt;&lt;Key&gt;Patient_Name&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;173&lt;/Width&gt;&lt;/Column2&gt;&lt;Column3 ID="AGE"&gt;&lt;Caption&gt;Tuổi&lt;/Caption&gt;&lt;DataMember&gt;AGE&lt;/DataMember&gt;&lt;Key&gt;AGE&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;63&lt;/Width&gt;&lt;/Column3&gt;&lt;Column4 ID="Sex"&gt;&lt;Caption&gt;Giới Tính&lt;/Caption&gt;&lt;DataMember&gt;Sex&lt;/DataMember&gt;&lt;Key&gt;Sex&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;72&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="Address"&gt;&lt;Caption&gt;Địa Chỉ&lt;/Caption&gt;&lt;DataMember&gt;Address&lt;/DataMember&gt;&lt;Key&gt;Address&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;Width&gt;187&lt;/Width&gt;&lt;/Column5&gt;&lt;Column6 ID="Insurance_Num"&gt;&lt;Caption&gt;Đối Tượng&lt;/Caption&gt;&lt;DataMember&gt;Insurance_Num&lt;/DataMember&gt;&lt;Key&gt;Insurance_Num&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column6&gt;&lt;Column7 ID="ObjectType_Name"&gt;&lt;Caption&gt;Đối tượng&lt;/Caption&gt;&lt;DataMember&gt;ObjectType_Name&lt;/DataMember&gt;&lt;Key&gt;ObjectType_Name&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;/Column7&gt;&lt;Column8 ID="Department"&gt;&lt;Caption&gt;Khoa&lt;/Caption&gt;&lt;DataMember&gt;Department&lt;/DataMember&gt;&lt;Key&gt;Department&lt;/Key&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;Width&gt;133&lt;/Width&gt;&lt;/Column8&gt;&lt;Column9 ID="Diagnostic"&gt;&lt;Caption&gt;Chẩn Đoán&lt;/Caption&gt;&lt;DataMember&gt;Diagnostic&lt;/DataMember&gt;&lt;Key&gt;Diagnostic&lt;/Key&gt;&lt;Position&gt;9&lt;/Position&gt;&lt;Width&gt;119&lt;/Width&gt;&lt;/Column9&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;5&lt;/ColIndex&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnExportExel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAANkE3LLaAgAABH5JREFUSEut
+        lulTk1cUxvnQP6nf/SP6AUqV0ogUKUW0y7R1Ci0aRAhhR0oBtS51Ona3FWU1ozFGCCFAgFKQhmwkb/aQ
+        jcDTc+77vtm6z/TMnOG+N29+z73PueeGssbB9ZtNVzbQOGDH230raOi2or7LgvqO56hrN6FO+wS1Fwyo
+        /WQWNc1TqDn/EJoP76P6/Xuofvd7VJ39BlWNd3G84Q6O199G5Zs38GrNNZRrxkKvnBh+uaxpaF2G9y7L
+        cN0Cwc2ou/SU4I9R22rAKYZ/PAXN+QfQfPAzwX9E9TvfoaqJ4V/J8NO3UFn7BSpqrqJCM045RjnaUtbY
+        v4qGXhsa9AyfR/1lBX6R4Y9wqmWG4JPQfDQhw9/7AdXnGP41TjD8rS9RWXezAM5gNUmgoccG7fU19Nz5
+        BfrbduhvraLrxjJ016zovGpB5/g8OkbNaB8xoX3YiPahx2gbMEDbNwttzzQu6idxQTeB1o77lD/lsvo0
+        CQoB8tsXSqE0otE0QqGk8iRHOp2F1xtXnvLhcsWQzR6J8dHRkcj+kTlZgIsZiKTFh4Xh8+3D7Y4qT3Ls
+        72ewuRlQnvJht/uRyRwK8OHhEQ4Oshj8/JEswH5L4T/u4L8K8O5UeCaTxcCIKkDF3AskxJcL0+mM4sWL
+        UNGcJCWwtuYvmuO0Le8hGEwiEk0hHE7SOIHuoRlZoPbTOThcUbGKwlxc9GDe4imaWybQM7OraM5u98Fo
+        2oXNtkfpxRKl1eqFtvOBLFDTPA2ppJgc/8Yi1fOVFR99lkYqlUEiwbtKoW94VhY4SZ0phRLKV/LxTwIq
+        PJvNkkVexGKpHJzHOQFuHok8K42/EyiEc0HZFvZfhUejCfReUQS4M/0kwC8Wpscbg8MRKZqLRFLY2AiQ
+        FVlltRnE4ilYqF6SFBfFDQTjYtyjFvn1c9+SwH5J4f68yHxaTM+cwnO2RS2owbCD+QUXvU8574SZsk33
+        UBaoOnMX/sC+YkI+Si0iV2j7adqBJHZTWFCLxY1AIE5HNEG7iItx96CyA74J/TRRGoUCDGff+fpYW/cT
+        /CAHj5NFC7Ry2SIZ7vdHSWBaFniNrlk/fVgaqoAK57uGm8hOjZZM5uFcULbF54vm4DzWDygCfM36pZiC
+        zQcLuKgBVTjbEqR+WaXG4uLK8KSwhT33eqM5uNcbRpcqUHFyHD4S2NwMFqXN5sOi1SM8X1uXaOU+UVSj
+        cRfLK17RtVxgq9WN2bltISIK/HwXZrMDWp3SyfzDwAK8qsLc3Q1jaysobOFrO0gnzemMkKgbe3sxeDxR
+        sjBCc2E8MTqwvS1hZycg/v66JaGjZ7JYoDDYFr73f6M+4FuSPeei+vxxsXL5tNCZJ8+5uCaTQwi53WGy
+        NUiLC0LX9xcCquduT4xWFMrB2XNe+dKSh3aUh7PnxqcOasogwUMCzuPOXkWg/I3RUPOlexgaM2BoVE7+
+        sdAPzNBL0+j/bI7uFc5Z6OnotekmRZfydcxHkU9L6+UJsWJd35RIhlfVXUd59eiZMv7XgpX+72T4sWMt
+        L/0OqH+Hrk3oAwAAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAANkE3LLaAgAAB5RJREFUWEfN
@@ -319,6 +344,9 @@
         AElFTkSuQmCC
 </value>
   </data>
+  <metadata name="GrdListExporter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAA0AMDAAAAEACACoDgAA1gAAACAgAAABAAgAqAgAAH4PAAAYGAAAAQAIAMgGAAAmGAAAEBAAAAEA

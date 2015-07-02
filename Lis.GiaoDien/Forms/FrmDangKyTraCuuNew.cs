@@ -139,7 +139,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                     if (chkIsFinal.Checked) vIsFinal = 1;
                     else vIsFinal = -1;
                     int dangkyxn;
-                    if (chkDangKyXN.Checked) dangkyxn = 1;
+                    if (chkDangKyXN.Checked) dangkyxn = 2;
                     else dangkyxn = -1;
                     //if (txtAge.Text.Trim() != "")
                     //{

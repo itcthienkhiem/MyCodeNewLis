@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Janus.Windows.GridEX.GridEXLayout gridResult_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_BaoCaoDanhSachBenhNhan_TestType));
             this.gridResult = new Janus.Windows.GridEX.GridEX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
+            this.chkChuaHoanTat = new Janus.Windows.EditControls.UICheckBox();
             this.chkTongBNHoanTatXN = new Janus.Windows.EditControls.UICheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnPrint = new Janus.Windows.EditControls.UIButton();
@@ -47,9 +49,11 @@
             this.dtpToDate = new Janus.Windows.CalendarCombo.CalendarCombo();
             this.dtpFromDate = new Janus.Windows.CalendarCombo.CalendarCombo();
             this.sysColor = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnExportExel = new Janus.Windows.EditControls.UIButton();
+            this.GrdListExporter = new Janus.Windows.GridEX.Export.GridEXExporter(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridResult)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
@@ -95,6 +99,8 @@
             // 
             // uiGroupBox2
             // 
+            this.uiGroupBox2.Controls.Add(this.btnExportExel);
+            this.uiGroupBox2.Controls.Add(this.chkChuaHoanTat);
             this.uiGroupBox2.Controls.Add(this.chkTongBNHoanTatXN);
             this.uiGroupBox2.Controls.Add(this.label5);
             this.uiGroupBox2.Controls.Add(this.btnPrint);
@@ -117,6 +123,17 @@
             this.uiGroupBox2.TabIndex = 86;
             this.uiGroupBox2.Text = "Thông tin tìm kiếm";
             // 
+            // chkChuaHoanTat
+            // 
+            this.chkChuaHoanTat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkChuaHoanTat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.chkChuaHoanTat.Location = new System.Drawing.Point(401, 74);
+            this.chkChuaHoanTat.Name = "chkChuaHoanTat";
+            this.chkChuaHoanTat.Size = new System.Drawing.Size(323, 25);
+            this.chkChuaHoanTat.TabIndex = 81;
+            this.chkChuaHoanTat.Text = "Báo cáo danh sách bệnh nhân chưa hoàn tất XN";
+            this.chkChuaHoanTat.CheckedChanged += new System.EventHandler(this.chkChuaHoanTat_CheckedChanged);
+            // 
             // chkTongBNHoanTatXN
             // 
             this.chkTongBNHoanTatXN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,6 +143,7 @@
             this.chkTongBNHoanTatXN.Size = new System.Drawing.Size(323, 25);
             this.chkTongBNHoanTatXN.TabIndex = 80;
             this.chkTongBNHoanTatXN.Text = "Báo cáo danh sách bệnh nhân đã hoàn tất XN";
+            this.chkTongBNHoanTatXN.CheckedChanged += new System.EventHandler(this.chkTongBNHoanTatXN_CheckedChanged);
             // 
             // label5
             // 
@@ -145,7 +163,7 @@
             this.btnPrint.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnPrint.Location = new System.Drawing.Point(238, 103);
+            this.btnPrint.Location = new System.Drawing.Point(238, 105);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(157, 29);
             this.btnPrint.TabIndex = 67;
@@ -206,7 +224,7 @@
             this.cmdCancel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdCancel.Image = ((System.Drawing.Image)(resources.GetObject("cmdCancel.Image")));
             this.cmdCancel.ImageSize = new System.Drawing.Size(24, 24);
-            this.cmdCancel.Location = new System.Drawing.Point(401, 103);
+            this.cmdCancel.Location = new System.Drawing.Point(564, 105);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(157, 29);
             this.cmdCancel.TabIndex = 14;
@@ -226,7 +244,7 @@
             this.cmdReport.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdReport.Image = ((System.Drawing.Image)(resources.GetObject("cmdReport.Image")));
             this.cmdReport.ImageSize = new System.Drawing.Size(24, 24);
-            this.cmdReport.Location = new System.Drawing.Point(75, 103);
+            this.cmdReport.Location = new System.Drawing.Point(75, 105);
             this.cmdReport.Name = "cmdReport";
             this.cmdReport.Size = new System.Drawing.Size(157, 29);
             this.cmdReport.TabIndex = 13;
@@ -272,6 +290,15 @@
             this.sysColor.Size = new System.Drawing.Size(869, 55);
             this.sysColor.TabIndex = 82;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 52);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -292,14 +319,21 @@
             this.label7.Text = "DANH SÁCH BỆNH NHÂN THEO XÉT NGHIỆM";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // btnExportExel
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 52);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.btnExportExel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExel.Image")));
+            this.btnExportExel.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnExportExel.Location = new System.Drawing.Point(401, 105);
+            this.btnExportExel.Name = "btnExportExel";
+            this.btnExportExel.Size = new System.Drawing.Size(157, 29);
+            this.btnExportExel.TabIndex = 82;
+            this.btnExportExel.Text = "Xuất File Exel";
+            this.btnExportExel.Click += new System.EventHandler(this.btnExportExel_Click);
+            // 
+            // GrdListExporter
+            // 
+            this.GrdListExporter.GridEX = this.gridResult;
             // 
             // frm_BaoCaoDanhSachBenhNhan_TestType
             // 
@@ -352,6 +386,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Janus.Windows.EditControls.UICheckBox chkChuaHoanTat;
+        private Janus.Windows.EditControls.UIButton btnExportExel;
+        internal Janus.Windows.GridEX.Export.GridEXExporter GrdListExporter;
 
 
 

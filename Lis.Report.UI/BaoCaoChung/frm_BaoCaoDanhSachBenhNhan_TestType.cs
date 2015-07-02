@@ -50,12 +50,13 @@ namespace VietBaIT.LABLink.Reports.Forms
          }
      
      }
-        private StoredProcedure BaocaoDSBNtheoTestType(DateTime? pFromDate, DateTime? pToDate, string testType)
+        private StoredProcedure BaocaoDSBNtheoTestType(DateTime? pFromDate, DateTime? pToDate, string testType, int check)
         {
             SubSonic.StoredProcedure sp = new StoredProcedure("spBaoCao_DSBN_TestType", DataService.GetInstance("ORM"),"dbo");
             sp.Command.AddParameter("@pFromDate", pFromDate,DbType.DateTime,null,null);
             sp.Command.AddParameter("@pToDate", pToDate,DbType.DateTime,null,null);
             sp.Command.AddParameter("@testType",testType,DbType.String,null,null);
+            sp.Command.AddParameter("@Check", check, DbType.Int16, null, null);
             return sp;
         }
      
@@ -64,6 +65,7 @@ namespace VietBaIT.LABLink.Reports.Forms
             try
             {
                 dt = new DataTable();
+                dt.Columns.Add("PID");
                 dt.Columns.Add("Patient_ID");
                 dt.Columns.Add("Patient_Name");
                 dt.Columns.Add("AGE");
@@ -79,24 +81,33 @@ namespace VietBaIT.LABLink.Reports.Forms
                 if (chkTongBNHoanTatXN.Checked)
                 {
                     dt = BaocaoDSBNtheoTestType(dtpFromDate.Value,
-                                                  dtpToDate.Value,"-1").
+                                                  dtpToDate.Value,"-1",1).
                                                   GetDataSet().Tables[0];
                 }
-                else
+                if (chkChuaHoanTat.Checked)
                 {
-                    if (cboTestType.SelectedValue.ToString() == "-1")
-                    {
-                        //foreach (DataRow item in cboTestType.Items)
-                        //{
-                        //    testype_id +=","+ item.ToString();
-                        //}
-                        Utility.ShowMsg("Bạn phải chọn loại xét nghiệm để thực hiện");
-                        cboTestType.Focus();
-                        return;
-                    }
+                    dt = BaocaoDSBNtheoTestType(dtpFromDate.Value,
+                                                   dtpToDate.Value, "-1",2).
+                                                   GetDataSet().Tables[0];
+                    
+                }
+                else if (cboTestType.SelectedValue.ToString() != "-1")
+                {
+                    chkChuaHoanTat.Checked = false;
+                    chkTongBNHoanTatXN.Checked = false;
+                    //if (cboTestType.SelectedValue.ToString() == "-1")
+                    //{
+                    //    //foreach (DataRow item in cboTestType.Items)
+                    //    //{
+                    //    //    testype_id +=","+ item.ToString();
+                    //    //}
+                    //    Utility.ShowMsg("Bạn phải chọn loại xét nghiệm để thực hiện");
+                    //    cboTestType.Focus();
+                    //    return;
+                    //}
                     dtRawResult = BaocaoDSBNtheoTestType(dtpFromDate.Value,
                                                   dtpToDate.Value,
-                                                 cboTestType.SelectedValue.ToString()).
+                                                 cboTestType.SelectedValue.ToString(),0).
                                                   GetDataSet().Tables[0];
                     if (dtRawResult.Rows.Count <= 0)
                     {
@@ -117,6 +128,7 @@ namespace VietBaIT.LABLink.Reports.Forms
                             Utility.sDbnull(dtRawResult.Rows[i - 1]["Patient_ID"]))
                         {
                             var newdr = dt.NewRow();
+                            newdr["PID"] = dtRawResult.Rows[i - 1]["PID"];
                             newdr["Patient_ID"] = dtRawResult.Rows[i - 1]["Patient_ID"];
                             newdr["Patient_Name"] = dtRawResult.Rows[i - 1]["Patient_Name"];
                             newdr["AGE"] = dtRawResult.Rows[i - 1]["AGE"];
@@ -125,24 +137,25 @@ namespace VietBaIT.LABLink.Reports.Forms
                             newdr["Insurance_Num"] = dtRawResult.Rows[i - 1]["Insurance_Num"];
                             newdr["Department"] = dtRawResult.Rows[i - 1]["Department"];
                             newdr["Diagnostic"] = dtRawResult.Rows[i - 1]["Diagnostic"];
-                            newdr["AllResult"] = patientResult.ToString();
+                            //newdr["AllResult"] = patientResult.ToString();
                             dt.Rows.Add(newdr);
                             patientResult = new StringBuilder();
                         }
-                        string value;
-                        value = string.Format(
-                               Utility.sDbnull(dtRawResult.Rows[i]["Test_result"]).Trim() != ""
-                                   ? "{0} {1}; "
-                                   : "{0} ",
-                               Utility.sDbnull(dtRawResult.Rows[i]["Test_Name"]),
-                               dtRawResult.Rows[i]["Test_result"]);
-                        patientResult.Append(value);
+                        //string value;
+                        //value = string.Format(
+                        //       Utility.sDbnull(dtRawResult.Rows[i]["Test_result"]).Trim() != ""
+                        //           ? "{0} {1}; "
+                        //           : "{0} ",
+                        //       Utility.sDbnull(dtRawResult.Rows[i]["Test_Name"]),
+                        //       dtRawResult.Rows[i]["Test_result"]);
+                        //patientResult.Append(value);
                     }
                 }
                 if(dt.Rows.Count<=0)
                 {
                     Utility.ShowMsg("Không có dữ liệu để báo cáo");
                     dt.AcceptChanges();
+                    gridResult.DataSource = null;
                     gridResult.Refresh();
                 }
                 else
@@ -174,7 +187,7 @@ namespace VietBaIT.LABLink.Reports.Forms
                                                     dtpToDate.Value.ToString("dd/MM/yyyy")));
                 }
                 string tieude = "", reportname = "";
-                string sTitleReport;
+                string sTitleReport,testtypename="";
              var crpt = new ReportDocument();
              if (chkTongBNHoanTatXN.Checked)
              {
@@ -186,15 +199,26 @@ namespace VietBaIT.LABLink.Reports.Forms
                  crpt = Utility.GetReport("crpt_BaoCaoSoLuongBN_TestType", ref tieude, ref reportname);
               
              }
-             var oForm = new frmPrintPreview("Báo cáo thống kê số lượng bệnh nhân", crpt, true, dt.Rows.Count <= 0 ? false : true);
+             var oForm = new frmPrintPreview("spBaoCao_DSBN_TestType", crpt, true, dt.Rows.Count <= 0 ? false : true);
              Utility.UpdateLogotoDatatable(ref dt);
              crpt.SetDataSource(dt);
              oForm.crptTrinhKyName = Path.GetFileName(reportname);
              crpt.SetParameterValue("TongBenhNhan", dt.Rows.Count);
-             crpt.SetParameterValue("TestType_Name", cboTestType.Text.ToUpper());
+             if (Utility.Int16Dbnull(cboTestType.SelectedValue)== -1)
+             {
+                 testtypename = "";
+             }
+             else
+             {
+                 testtypename = cboTestType.Text.ToUpper();
+
+             }
+             crpt.SetParameterValue("TestType_Name", testtypename);
              crpt.SetParameterValue("strFromDateToDate", s);
              crpt.SetParameterValue("ParentBranchName", ManagementUnit.gv_sParentBranchName);
              crpt.SetParameterValue("BranchName", ManagementUnit.gv_sBranchName);
+             crpt.SetParameterValue("sPhone", ManagementUnit.gv_sPhone);
+             crpt.SetParameterValue("Address", ManagementUnit.gv_sAddress);
              crpt.SetParameterValue("sCurrentDate", dtCreatePrint.Value);
              oForm.crptViewer.ReportSource = crpt;
              oForm.ShowDialog();
@@ -221,5 +245,51 @@ namespace VietBaIT.LABLink.Reports.Forms
                  break;
          }
      }
+
+      private void chkTongBNHoanTatXN_CheckedChanged(object sender, EventArgs e)
+      {
+          if (chkTongBNHoanTatXN.Checked)
+          {
+              chkChuaHoanTat.Checked = false;
+          }
+      }
+
+      private void chkChuaHoanTat_CheckedChanged(object sender, EventArgs e)
+      {
+          if (chkChuaHoanTat.Checked)
+          {
+              chkTongBNHoanTatXN.Checked = false;
+          }
+
+      }
+
+      private void btnExportExel_Click(object sender, EventArgs e)
+      {
+          Stream sw = null;
+          try
+          {
+              var sd = new SaveFileDialog { Filter = "Excel File (*.xls)|*.xls" };
+              if (sd.ShowDialog() == DialogResult.OK)
+              {
+                  sw = new FileStream(sd.FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                  GrdListExporter.Export(sw);
+                  MessageBox.Show("Xuất dữ liệu thành công", "Thông Báo", MessageBoxButtons.OK);
+              }
+
+          }
+          catch (Exception)
+          {
+              MessageBox.Show("Có lỗi trong quá trình xuất dữ liệu", "Thông Báo", MessageBoxButtons.OK);
+          }
+          finally
+          {
+              if (sw != null)
+              {
+                  sw.Flush();
+                  sw.Close();
+                  sw.Dispose();
+              }
+          }
+      }
     }
 }

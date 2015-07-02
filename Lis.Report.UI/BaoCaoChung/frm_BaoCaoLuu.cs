@@ -172,7 +172,7 @@ namespace VietBaIT.LABLink.Reports.Forms
                                                     dtpToDate.Value.ToString("dd/MM/yyyy")));
                 }
                 var crpt = new VD_crpt_DailyParamTestReport();
-                var oForm = new frmPrintPreview("In Báo cáo lưu", crpt, true, true);
+                var oForm = new frmPrintPreview("sp_RPT_BaoCaoLuu", crpt, true, true);
                 crpt.SetDataSource(dt);
                 crpt.DataDefinition.FormulaFields["Formula_1"].Text = "";
                 //crpt.SetParameterValue("sTenKhoa", sTenKhoa);

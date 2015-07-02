@@ -80,7 +80,7 @@ namespace LIS.DAL
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Pid,string PatientName,string Address,int? YearBirth,bool? Sex,string InsuranceNum,DateTime? Dateupdate,string Diagnostic,string IdentifyNum,short? DepartmentID,string Room,string Bed,int? ObjectType,int? HosStatus,DateTime? Dob,int? LotID,string CanLamSangId,byte? TestCount,byte? TestHasResult,byte? PrintStatus,short? HasAllResult,short? IsFinal,string UserId,string ChucVu,string NgheNghiep,string DepartmentName)
+	    public void Insert(string Pid,string PatientName,string Address,int? YearBirth,bool? Sex,string InsuranceNum,DateTime? Dateupdate,string Diagnostic,string IdentifyNum,short? DepartmentID,string Room,string Bed,int? ObjectType,int? HosStatus,DateTime? Dob,int? LotID,string CanLamSangId,byte? TestCount,byte? TestHasResult,byte? PrintStatus,short? HasAllResult,short? IsFinal,string UserId,string ChucVu,string NgheNghiep,string DepartmentName,string CollegeAge)
 	    {
 		    LPatientInfo item = new LPatientInfo();
 		    
@@ -136,6 +136,8 @@ namespace LIS.DAL
             
             item.DepartmentName = DepartmentName;
             
+            item.CollegeAge = CollegeAge;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -144,7 +146,7 @@ namespace LIS.DAL
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(decimal PatientId,string Pid,string PatientName,string Address,int? YearBirth,bool? Sex,string InsuranceNum,DateTime? Dateupdate,string Diagnostic,string IdentifyNum,short? DepartmentID,string Room,string Bed,int? ObjectType,int? HosStatus,DateTime? Dob,int? LotID,string CanLamSangId,byte? TestCount,byte? TestHasResult,byte? PrintStatus,short? HasAllResult,short? IsFinal,string UserId,string ChucVu,string NgheNghiep,string DepartmentName)
+	    public void Update(decimal PatientId,string Pid,string PatientName,string Address,int? YearBirth,bool? Sex,string InsuranceNum,DateTime? Dateupdate,string Diagnostic,string IdentifyNum,short? DepartmentID,string Room,string Bed,int? ObjectType,int? HosStatus,DateTime? Dob,int? LotID,string CanLamSangId,byte? TestCount,byte? TestHasResult,byte? PrintStatus,short? HasAllResult,short? IsFinal,string UserId,string ChucVu,string NgheNghiep,string DepartmentName,string CollegeAge)
 	    {
 		    LPatientInfo item = new LPatientInfo();
 	        item.MarkOld();
@@ -203,6 +205,8 @@ namespace LIS.DAL
 			item.NgheNghiep = NgheNghiep;
 				
 			item.DepartmentName = DepartmentName;
+				
+			item.CollegeAge = CollegeAge;
 				
 	        item.Save(UserName);
 	    }

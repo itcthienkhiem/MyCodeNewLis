@@ -207,12 +207,6 @@
     <Compile Include="Forms\Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmDangKyTraCuu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmDangKyTraCuu.Designer.cs">
-      <DependentUpon>FrmDangKyTraCuu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FrmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,12 +224,6 @@
     </Compile>
     <Compile Include="Forms\frm_ChoosePrint.Designer.cs">
       <DependentUpon>frm_ChoosePrint.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm_TraCuuKQ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm_TraCuuKQ.Designer.cs">
-      <DependentUpon>frm_TraCuuKQ.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
@@ -324,12 +312,6 @@
     <Compile Include="Forms\frmTiepDonDangKy.Designer.cs">
       <DependentUpon>frmTiepDonDangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_AllMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm_AllMain.Designer.cs">
-      <DependentUpon>frm_AllMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmQuickInputResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,12 +324,6 @@
     </Compile>
     <Compile Include="Frm_Config.Designer.cs">
       <DependentUpon>Frm_Config.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_DangKyTraCuu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_DangKyTraCuu.Designer.cs">
-      <DependentUpon>frm_DangKyTraCuu.cs</DependentUpon>
     </Compile>
     <Compile Include="PreloadedLists.cs" />
     <Compile Include="SysPara.cs" />
@@ -386,9 +362,6 @@
     <EmbeddedResource Include="Forms\Form5.resx">
       <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmDangKyTraCuu.resx">
-      <DependentUpon>FrmDangKyTraCuu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,9 +371,6 @@
     <EmbeddedResource Include="Forms\frm_ChoosePrint.resx">
       <DependentUpon>frm_ChoosePrint.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_TraCuuKQ.resx">
-      <DependentUpon>frm_TraCuuKQ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -447,17 +417,11 @@
       <DependentUpon>frmTiepDonDangKy.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_AllMain.resx">
-      <DependentUpon>frm_AllMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmQuickInputResult.resx">
       <DependentUpon>frmQuickInputResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Config.resx">
       <DependentUpon>Frm_Config.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_DangKyTraCuu.resx">
-      <DependentUpon>frm_DangKyTraCuu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Uc_QuickInputResult.resx">
       <DependentUpon>Uc_QuickInputResult.cs</DependentUpon>

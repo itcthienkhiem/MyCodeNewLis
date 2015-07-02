@@ -3668,7 +3668,7 @@ namespace LIS.DAL{
         /// <summary>
         /// Creates an object wrapper for the SpGetPatientInfoAll Procedure
         /// </summary>
-        public static StoredProcedure SpGetPatientInfoAll(string pTestDateFrom, string pTestDateTo, string strTestTypeID, string Barcode, string PID, string PatientName, int? Age, int? Sex, int? ObjectTypeID, int? DepartmentID, string pCanLamSangID, int? vIsFinal, string UserID)
+        public static StoredProcedure SpGetPatientInfoAll(string pTestDateFrom, string pTestDateTo, string strTestTypeID, string Barcode, string PID, string PatientName, int? Age, int? Sex, int? ObjectTypeID, int? DepartmentID, string pCanLamSangID, int? vIsFinal, string UserID, int? DangKyXn)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("SpGetPatientInfoAll", DataService.GetInstance("ORM"), "dbo");
         	
@@ -3697,6 +3697,8 @@ namespace LIS.DAL{
             sp.Command.AddParameter("@vIsFinal", vIsFinal, DbType.Int32, 0, 10);
         	
             sp.Command.AddParameter("@User_ID", UserID, DbType.String, null, null);
+        	
+            sp.Command.AddParameter("@DangKyXn", DangKyXn, DbType.Int32, 0, 10);
         	
             return sp;
         }

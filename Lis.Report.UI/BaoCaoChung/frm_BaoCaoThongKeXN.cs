@@ -136,7 +136,7 @@ namespace VietBaIT.LABLink.Reports.Form_GTVT
                 {
                     crpt = Utility.GetReport("CRPT_GTVT_BAOCAO_SOLUONG_LOAIXETNGHIEM", ref tieude, ref reportname);
                 }
-                var objForm = new frmPrintPreview("Báo cáo thống kê số lượng xét nghiệm", crpt, true, v_dtData.Rows.Count <= 0 ? false : true);
+                var objForm = new frmPrintPreview("GTVT_BAOCAO_TONGSLUONG_LOAIXETNGHIEM", crpt, true, v_dtData.Rows.Count <= 0 ? false : true);
                 Utility.UpdateLogotoDatatable(ref v_dtData);
             crpt.SetDataSource(v_dtData);
             objForm.crptTrinhKyName = Path.GetFileName(reportname);

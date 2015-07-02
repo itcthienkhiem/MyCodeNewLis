@@ -256,6 +256,19 @@ namespace LIS.DAL
 				colvarSDesc.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSDesc);
 				
+				TableSchema.TableColumn colvarIsUpdate = new TableSchema.TableColumn(schema);
+				colvarIsUpdate.ColumnName = "isUpdate";
+				colvarIsUpdate.DataType = DbType.Int32;
+				colvarIsUpdate.MaxLength = 0;
+				colvarIsUpdate.AutoIncrement = false;
+				colvarIsUpdate.IsNullable = true;
+				colvarIsUpdate.IsPrimaryKey = false;
+				colvarIsUpdate.IsForeignKey = false;
+				colvarIsUpdate.IsReadOnly = false;
+				colvarIsUpdate.DefaultSetting = @"";
+				colvarIsUpdate.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarIsUpdate);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -345,6 +358,14 @@ namespace LIS.DAL
 			get { return GetColumnValue<string>(Columns.SDesc); }
 			set { SetColumnValue(Columns.SDesc, value); }
 		}
+		  
+		[XmlAttribute("IsUpdate")]
+		[Bindable(true)]
+		public int? IsUpdate 
+		{
+			get { return GetColumnValue<int?>(Columns.IsUpdate); }
+			set { SetColumnValue(Columns.IsUpdate, value); }
+		}
 		
 		#endregion
 		
@@ -365,7 +386,7 @@ namespace LIS.DAL
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varSFileName,string varSRarFileName,byte[] varObjData,string varSVersion,short? varIntRar,short? varIntPatch,DateTime? varTUpdatedDate,int? varDblCapacity,string varSDesc)
+		public static void Insert(string varSFileName,string varSRarFileName,byte[] varObjData,string varSVersion,short? varIntRar,short? varIntPatch,DateTime? varTUpdatedDate,int? varDblCapacity,string varSDesc,int? varIsUpdate)
 		{
 			SysVersion item = new SysVersion();
 			
@@ -387,6 +408,8 @@ namespace LIS.DAL
 			
 			item.SDesc = varSDesc;
 			
+			item.IsUpdate = varIsUpdate;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -397,7 +420,7 @@ namespace LIS.DAL
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varPkIntID,string varSFileName,string varSRarFileName,byte[] varObjData,string varSVersion,short? varIntRar,short? varIntPatch,DateTime? varTUpdatedDate,int? varDblCapacity,string varSDesc)
+		public static void Update(int varPkIntID,string varSFileName,string varSRarFileName,byte[] varObjData,string varSVersion,short? varIntRar,short? varIntPatch,DateTime? varTUpdatedDate,int? varDblCapacity,string varSDesc,int? varIsUpdate)
 		{
 			SysVersion item = new SysVersion();
 			
@@ -420,6 +443,8 @@ namespace LIS.DAL
 				item.DblCapacity = varDblCapacity;
 			
 				item.SDesc = varSDesc;
+			
+				item.IsUpdate = varIsUpdate;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -504,6 +529,13 @@ namespace LIS.DAL
         
         
         
+        public static TableSchema.TableColumn IsUpdateColumn
+        {
+            get { return Schema.Columns[10]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -518,6 +550,7 @@ namespace LIS.DAL
 			 public static string TUpdatedDate = @"tUpdatedDate";
 			 public static string DblCapacity = @"dblCapacity";
 			 public static string SDesc = @"sDesc";
+			 public static string IsUpdate = @"isUpdate";
 						
 		}
 		#endregion

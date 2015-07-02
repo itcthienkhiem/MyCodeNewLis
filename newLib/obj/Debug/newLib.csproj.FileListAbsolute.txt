@@ -22,3 +22,14 @@ C:\Users\hadk\Documents\GitHub\UINew\newLib\obj\Debug\VNS.Libs.dll.licenses
 C:\Users\hadk\Documents\GitHub\UINew\newLib\obj\Debug\VNS.Libs.dll
 C:\Users\hadk\Documents\GitHub\UINew\newLib\obj\Debug\VNS.Libs.pdb
 C:\Users\hadk\Documents\GitHub\UINew\newLib\obj\Debug\newLib.csprojResolveAssemblyReference.cache
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\VNS.Libs.dll
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\VNS.Libs.pdb
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\VNS.Properties.frm_Properties.resources
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\VNS.Libs.frmPrintPreview.resources
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\VNS.Libs.frm_SignInfor.resources
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\VNS.Libs.frm_SysUsers.resources
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\newLib.Properties.Resources.resources
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\newLib.csproj.GenerateResource.Cache
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\VNS.Libs.dll.licenses
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\VNS.Libs.dll
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newLib\obj\Debug\VNS.Libs.pdb

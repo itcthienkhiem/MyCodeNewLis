@@ -478,6 +478,19 @@ namespace LIS.DAL
 				colvarDepartmentName.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarDepartmentName);
 				
+				TableSchema.TableColumn colvarCollegeAge = new TableSchema.TableColumn(schema);
+				colvarCollegeAge.ColumnName = "CollegeAge";
+				colvarCollegeAge.DataType = DbType.String;
+				colvarCollegeAge.MaxLength = 50;
+				colvarCollegeAge.AutoIncrement = false;
+				colvarCollegeAge.IsNullable = true;
+				colvarCollegeAge.IsPrimaryKey = false;
+				colvarCollegeAge.IsForeignKey = false;
+				colvarCollegeAge.IsReadOnly = false;
+				colvarCollegeAge.DefaultSetting = @"";
+				colvarCollegeAge.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarCollegeAge);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -703,6 +716,14 @@ namespace LIS.DAL
 			get { return GetColumnValue<string>(Columns.DepartmentName); }
 			set { SetColumnValue(Columns.DepartmentName, value); }
 		}
+		  
+		[XmlAttribute("CollegeAge")]
+		[Bindable(true)]
+		public string CollegeAge 
+		{
+			get { return GetColumnValue<string>(Columns.CollegeAge); }
+			set { SetColumnValue(Columns.CollegeAge, value); }
+		}
 		
 		#endregion
 		
@@ -723,7 +744,7 @@ namespace LIS.DAL
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varPid,string varPatientName,string varAddress,int? varYearBirth,bool? varSex,string varInsuranceNum,DateTime? varDateupdate,string varDiagnostic,string varIdentifyNum,short? varDepartmentID,string varRoom,string varBed,int? varObjectType,int? varHosStatus,DateTime? varDob,int? varLotID,string varCanLamSangId,byte? varTestCount,byte? varTestHasResult,byte? varPrintStatus,short? varHasAllResult,short? varIsFinal,string varUserId,string varChucVu,string varNgheNghiep,string varDepartmentName)
+		public static void Insert(string varPid,string varPatientName,string varAddress,int? varYearBirth,bool? varSex,string varInsuranceNum,DateTime? varDateupdate,string varDiagnostic,string varIdentifyNum,short? varDepartmentID,string varRoom,string varBed,int? varObjectType,int? varHosStatus,DateTime? varDob,int? varLotID,string varCanLamSangId,byte? varTestCount,byte? varTestHasResult,byte? varPrintStatus,short? varHasAllResult,short? varIsFinal,string varUserId,string varChucVu,string varNgheNghiep,string varDepartmentName,string varCollegeAge)
 		{
 			LPatientInfo item = new LPatientInfo();
 			
@@ -779,6 +800,8 @@ namespace LIS.DAL
 			
 			item.DepartmentName = varDepartmentName;
 			
+			item.CollegeAge = varCollegeAge;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -789,7 +812,7 @@ namespace LIS.DAL
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(decimal varPatientId,string varPid,string varPatientName,string varAddress,int? varYearBirth,bool? varSex,string varInsuranceNum,DateTime? varDateupdate,string varDiagnostic,string varIdentifyNum,short? varDepartmentID,string varRoom,string varBed,int? varObjectType,int? varHosStatus,DateTime? varDob,int? varLotID,string varCanLamSangId,byte? varTestCount,byte? varTestHasResult,byte? varPrintStatus,short? varHasAllResult,short? varIsFinal,string varUserId,string varChucVu,string varNgheNghiep,string varDepartmentName)
+		public static void Update(decimal varPatientId,string varPid,string varPatientName,string varAddress,int? varYearBirth,bool? varSex,string varInsuranceNum,DateTime? varDateupdate,string varDiagnostic,string varIdentifyNum,short? varDepartmentID,string varRoom,string varBed,int? varObjectType,int? varHosStatus,DateTime? varDob,int? varLotID,string varCanLamSangId,byte? varTestCount,byte? varTestHasResult,byte? varPrintStatus,short? varHasAllResult,short? varIsFinal,string varUserId,string varChucVu,string varNgheNghiep,string varDepartmentName,string varCollegeAge)
 		{
 			LPatientInfo item = new LPatientInfo();
 			
@@ -846,6 +869,8 @@ namespace LIS.DAL
 				item.NgheNghiep = varNgheNghiep;
 			
 				item.DepartmentName = varDepartmentName;
+			
+				item.CollegeAge = varCollegeAge;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -1049,6 +1074,13 @@ namespace LIS.DAL
         
         
         
+        public static TableSchema.TableColumn CollegeAgeColumn
+        {
+            get { return Schema.Columns[27]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -1080,6 +1112,7 @@ namespace LIS.DAL
 			 public static string ChucVu = @"ChucVu";
 			 public static string NgheNghiep = @"NgheNghiep";
 			 public static string DepartmentName = @"DepartmentName";
+			 public static string CollegeAge = @"CollegeAge";
 						
 		}
 		#endregion

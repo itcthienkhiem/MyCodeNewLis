@@ -20,3 +20,8 @@ C:\Users\hadk\Documents\GitHub\UINew\Running\LIS.DAL.dll
 C:\Users\hadk\Documents\GitHub\UINew\Running\LIS.DAL.pdb
 C:\Users\hadk\Documents\GitHub\UINew\newdal\obj\Debug\LIS.DAL.dll
 C:\Users\hadk\Documents\GitHub\UINew\newdal\obj\Debug\LIS.DAL.pdb
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\LIS.DAL.dll.config
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\LIS.DAL.dll
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\LIS.DAL.pdb
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newdal\obj\Debug\LIS.DAL.dll
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\newdal\obj\Debug\LIS.DAL.pdb

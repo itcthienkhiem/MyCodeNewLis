@@ -6,69 +6,19 @@ ImportExel
 </name>
 </assembly>
 <members>
-<member name="M:ImportExel.Utilities.WriteDataTableToFile(System.Data.DataTable,System.String,System.Boolean)">
+<member name="P:ImportExel.My.Resources.Resources.ResourceManager">
 	<summary>
- Ghi toàn bộ nội dung của datatable ra file text
- </summary>
-	<param name="dt">Data Table cần ghi</param>
-	<param name="outputFilePath">Đường dẫn đến file cần ghi</param>
-</member><member name="T:ImportExel.Utilities.MethodInvoker">
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ImportExel.My.Resources.Resources.Culture">
 	<summary>
- Delegate to invoke a specific method on the control thread-safely.
- </summary>
-	<param name="control">Control on which to invoke the method</param>
-	<param name="methodName">Method to be invoked</param>
-	<param name="paramValues">Method parameters</param>
-	<returns>Value returned by the invoked method</returns>
-</member><member name="T:ImportExel.Utilities.PropertyGetInvoker">
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ImportExel.My.Resources.Resources">
 	<summary>
- Delegate to get a property value on the control thread-safely.
- </summary>
-	<param name="control">Control on which to GET the property value</param>
-	<param name="propertyName">Property name</param>
-	<return>Property value</return>
-</member><member name="T:ImportExel.Utilities.PropertySetInvoker">
-	<summary>
- Delegate to set a property value on the control thread-safely.
- </summary>
-	<param name="control">Control on which to SET the property value</param>
-	<param name="propertyName">Property name</param>
-	<param name="value">New property value</param>
-</member><member name="M:ImportExel.Utilities.InvokeMethod(System.Windows.Forms.Control,System.String,System.Object[])">
-	<summary>
- Invoke a specific method on the control thread-safely.
- </summary>
-	<param name="control">Control on which to invoke the method</param>
-	<param name="methodName">Method to be invoked</param>
-	<param name="paramValues">Method parameters</param>
-	<return>Value returned by the invoked method</return>
-</member><member name="M:ImportExel.Utilities.GetProperty(System.Windows.Forms.Control,System.String)">
-	<summary>
- Get a PropertyInfo object associated with a specific property on the control.
- </summary>
-	<param name="control">Control</param>
-	<param name="propertyName">Property name</param>
-	<return>A PropertyInfo object associated with 
- 'propertyName' on specified 'control'</return>
-</member><member name="M:ImportExel.Utilities.SetPropertyValue(System.Windows.Forms.Control,System.String,System.Object)">
-	<summary>
- Set a property value on the control thread-safely.
- </summary>
-	<param name="control">Control on which to SET the property value</param>
-	<param name="propertyName">Property name</param>
-	<param name="value">New property value</param>
-</member><member name="M:ImportExel.Utilities.GetPropertyValue(System.Windows.Forms.Control,System.String)">
-	<summary>
- Get a property value on the control thread-safely.
- </summary>
-	<param name="control">Control on which to GET the property value</param>
-	<param name="propertyName">Property name</param>
-	<return>Property value</return>
-</member><member name="M:ImportExel.Utilities.GetRunWithLablinkService">
-	<summary>
- Lấy về tham số hệ thống RUNWITHLABLINKSERVICE.
- </summary>
-	<returns>True: Nếu chạy cùng LABLink Service (=1)</returns>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member><member name="M:ImportExel.ModBusinessHelper.GetAllTestTypeList">
 	<summary>
  Gets all test type list.
@@ -290,19 +240,69 @@ ImportExel
  Hàm điều khiển sự kiện bỏ dấu và viết hoa
  </summary>
 	<remarks></remarks>
-</member><member name="P:ImportExel.My.Resources.Resources.ResourceManager">
+</member><member name="M:ImportExel.Utilities.WriteDataTableToFile(System.Data.DataTable,System.String,System.Boolean)">
 	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:ImportExel.My.Resources.Resources.Culture">
+ Ghi toàn bộ nội dung của datatable ra file text
+ </summary>
+	<param name="dt">Data Table cần ghi</param>
+	<param name="outputFilePath">Đường dẫn đến file cần ghi</param>
+</member><member name="T:ImportExel.Utilities.MethodInvoker">
 	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:ImportExel.My.Resources.Resources">
+ Delegate to invoke a specific method on the control thread-safely.
+ </summary>
+	<param name="control">Control on which to invoke the method</param>
+	<param name="methodName">Method to be invoked</param>
+	<param name="paramValues">Method parameters</param>
+	<returns>Value returned by the invoked method</returns>
+</member><member name="T:ImportExel.Utilities.PropertyGetInvoker">
 	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
+ Delegate to get a property value on the control thread-safely.
+ </summary>
+	<param name="control">Control on which to GET the property value</param>
+	<param name="propertyName">Property name</param>
+	<return>Property value</return>
+</member><member name="T:ImportExel.Utilities.PropertySetInvoker">
+	<summary>
+ Delegate to set a property value on the control thread-safely.
+ </summary>
+	<param name="control">Control on which to SET the property value</param>
+	<param name="propertyName">Property name</param>
+	<param name="value">New property value</param>
+</member><member name="M:ImportExel.Utilities.InvokeMethod(System.Windows.Forms.Control,System.String,System.Object[])">
+	<summary>
+ Invoke a specific method on the control thread-safely.
+ </summary>
+	<param name="control">Control on which to invoke the method</param>
+	<param name="methodName">Method to be invoked</param>
+	<param name="paramValues">Method parameters</param>
+	<return>Value returned by the invoked method</return>
+</member><member name="M:ImportExel.Utilities.GetProperty(System.Windows.Forms.Control,System.String)">
+	<summary>
+ Get a PropertyInfo object associated with a specific property on the control.
+ </summary>
+	<param name="control">Control</param>
+	<param name="propertyName">Property name</param>
+	<return>A PropertyInfo object associated with 
+ 'propertyName' on specified 'control'</return>
+</member><member name="M:ImportExel.Utilities.SetPropertyValue(System.Windows.Forms.Control,System.String,System.Object)">
+	<summary>
+ Set a property value on the control thread-safely.
+ </summary>
+	<param name="control">Control on which to SET the property value</param>
+	<param name="propertyName">Property name</param>
+	<param name="value">New property value</param>
+</member><member name="M:ImportExel.Utilities.GetPropertyValue(System.Windows.Forms.Control,System.String)">
+	<summary>
+ Get a property value on the control thread-safely.
+ </summary>
+	<param name="control">Control on which to GET the property value</param>
+	<param name="propertyName">Property name</param>
+	<return>Property value</return>
+</member><member name="M:ImportExel.Utilities.GetRunWithLablinkService">
+	<summary>
+ Lấy về tham số hệ thống RUNWITHLABLINKSERVICE.
+ </summary>
+	<returns>True: Nếu chạy cùng LABLink Service (=1)</returns>
 </member>
 </members>
 </doc>

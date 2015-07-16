@@ -91,6 +91,13 @@ namespace VietBaIT.LABLink.Reports.Forms
                                                    GetDataSet().Tables[0];
                     
                 }
+                if (chkChuaKham.Checked)
+                {
+                    dt = BaocaoDSBNtheoTestType(dtpFromDate.Value,
+                                                   dtpToDate.Value, "-1", 3).
+                                                   GetDataSet().Tables[0];
+
+                }
                 else if (cboTestType.SelectedValue.ToString() != "-1")
                 {
                     chkChuaHoanTat.Checked = false;
@@ -253,6 +260,7 @@ namespace VietBaIT.LABLink.Reports.Forms
           if (chkTongBNHoanTatXN.Checked)
           {
               chkChuaHoanTat.Checked = false;
+              chkChuaKham.Checked = false;
           }
       }
 
@@ -261,6 +269,7 @@ namespace VietBaIT.LABLink.Reports.Forms
           if (chkChuaHoanTat.Checked)
           {
               chkTongBNHoanTatXN.Checked = false;
+              chkChuaKham.Checked = false;
           }
 
       }
@@ -291,6 +300,15 @@ namespace VietBaIT.LABLink.Reports.Forms
                   sw.Close();
                   sw.Dispose();
               }
+          }
+      }
+
+      private void chkChuaKham_CheckedChanged(object sender, EventArgs e)
+      {
+          if (chkChuaKham.Checked)
+          {
+              chkChuaHoanTat.Checked = false;
+              chkTongBNHoanTatXN.Checked = false;
           }
       }
     }

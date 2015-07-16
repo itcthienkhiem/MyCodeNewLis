@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Janus.Windows.GridEX.GridEXLayout gridResult_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_BaoCaoDanhSachBenhNhan_TestType));
-            this.gridResult = new Janus.Windows.GridEX.GridEX();
+            Janus.Windows.GridEX.GridEXLayout gridResult_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
             this.btnExportExel = new Janus.Windows.EditControls.UIButton();
@@ -54,37 +53,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.GrdListExporter = new Janus.Windows.GridEX.Export.GridEXExporter(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.gridResult)).BeginInit();
+            this.chkChuaKham = new Janus.Windows.EditControls.UICheckBox();
+            this.gridResult = new Janus.Windows.GridEX.GridEX();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
             this.uiGroupBox2.SuspendLayout();
             this.sysColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridResult)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gridResult
-            // 
-            this.gridResult.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
-            this.gridResult.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
-            gridResult_DesignTimeLayout.LayoutString = resources.GetString("gridResult_DesignTimeLayout.LayoutString");
-            this.gridResult.DesignTimeLayout = gridResult_DesignTimeLayout;
-            this.gridResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridResult.DynamicFiltering = true;
-            this.gridResult.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
-            this.gridResult.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-            this.gridResult.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-            this.gridResult.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridResult.FrozenColumns = 2;
-            this.gridResult.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
-            this.gridResult.GroupByBoxVisible = false;
-            this.gridResult.HideSelection = Janus.Windows.GridEX.HideSelection.Highlight;
-            this.gridResult.Location = new System.Drawing.Point(0, 218);
-            this.gridResult.Name = "gridResult";
-            this.gridResult.RecordNavigator = true;
-            this.gridResult.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
-            this.gridResult.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.True;
-            this.gridResult.Size = new System.Drawing.Size(875, 309);
-            this.gridResult.TabIndex = 25;
             // 
             // groupBox2
             // 
@@ -93,12 +70,13 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(875, 218);
+            this.groupBox2.Size = new System.Drawing.Size(875, 268);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
             // uiGroupBox2
             // 
+            this.uiGroupBox2.Controls.Add(this.chkChuaKham);
             this.uiGroupBox2.Controls.Add(this.btnExportExel);
             this.uiGroupBox2.Controls.Add(this.chkChuaHoanTat);
             this.uiGroupBox2.Controls.Add(this.chkTongBNHoanTatXN);
@@ -119,7 +97,7 @@
             this.uiGroupBox2.Image = ((System.Drawing.Image)(resources.GetObject("uiGroupBox2.Image")));
             this.uiGroupBox2.Location = new System.Drawing.Point(3, 73);
             this.uiGroupBox2.Name = "uiGroupBox2";
-            this.uiGroupBox2.Size = new System.Drawing.Size(869, 142);
+            this.uiGroupBox2.Size = new System.Drawing.Size(869, 189);
             this.uiGroupBox2.TabIndex = 86;
             this.uiGroupBox2.Text = "Thông tin tìm kiếm";
             // 
@@ -128,7 +106,7 @@
             this.btnExportExel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportExel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExel.Image")));
             this.btnExportExel.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnExportExel.Location = new System.Drawing.Point(401, 105);
+            this.btnExportExel.Location = new System.Drawing.Point(392, 149);
             this.btnExportExel.Name = "btnExportExel";
             this.btnExportExel.Size = new System.Drawing.Size(157, 29);
             this.btnExportExel.TabIndex = 82;
@@ -139,9 +117,9 @@
             // 
             this.chkChuaHoanTat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkChuaHoanTat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.chkChuaHoanTat.Location = new System.Drawing.Point(401, 74);
+            this.chkChuaHoanTat.Location = new System.Drawing.Point(76, 94);
             this.chkChuaHoanTat.Name = "chkChuaHoanTat";
-            this.chkChuaHoanTat.Size = new System.Drawing.Size(323, 25);
+            this.chkChuaHoanTat.Size = new System.Drawing.Size(366, 25);
             this.chkChuaHoanTat.TabIndex = 81;
             this.chkChuaHoanTat.Text = "Báo cáo danh sách bệnh nhân chưa hoàn tất XN";
             this.chkChuaHoanTat.CheckedChanged += new System.EventHandler(this.chkChuaHoanTat_CheckedChanged);
@@ -175,7 +153,7 @@
             this.btnPrint.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnPrint.Location = new System.Drawing.Point(238, 105);
+            this.btnPrint.Location = new System.Drawing.Point(229, 149);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(157, 29);
             this.btnPrint.TabIndex = 67;
@@ -236,7 +214,7 @@
             this.cmdCancel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdCancel.Image = ((System.Drawing.Image)(resources.GetObject("cmdCancel.Image")));
             this.cmdCancel.ImageSize = new System.Drawing.Size(24, 24);
-            this.cmdCancel.Location = new System.Drawing.Point(564, 105);
+            this.cmdCancel.Location = new System.Drawing.Point(555, 149);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(157, 29);
             this.cmdCancel.TabIndex = 14;
@@ -256,7 +234,7 @@
             this.cmdReport.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdReport.Image = ((System.Drawing.Image)(resources.GetObject("cmdReport.Image")));
             this.cmdReport.ImageSize = new System.Drawing.Size(24, 24);
-            this.cmdReport.Location = new System.Drawing.Point(75, 105);
+            this.cmdReport.Location = new System.Drawing.Point(66, 149);
             this.cmdReport.Name = "cmdReport";
             this.cmdReport.Size = new System.Drawing.Size(157, 29);
             this.cmdReport.TabIndex = 13;
@@ -331,9 +309,40 @@
             this.label7.Text = "DANH SÁCH BỆNH NHÂN THEO XÉT NGHIỆM";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // GrdListExporter
+            // chkChuaKham
             // 
-            this.GrdListExporter.GridEX = this.gridResult;
+            this.chkChuaKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkChuaKham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.chkChuaKham.Location = new System.Drawing.Point(76, 114);
+            this.chkChuaKham.Name = "chkChuaKham";
+            this.chkChuaKham.Size = new System.Drawing.Size(366, 25);
+            this.chkChuaKham.TabIndex = 83;
+            this.chkChuaKham.Text = "Báo cáo danh sách bệnh nhân chưa khám";
+            this.chkChuaKham.CheckedChanged += new System.EventHandler(this.chkChuaKham_CheckedChanged);
+            // 
+            // gridResult
+            // 
+            this.gridResult.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+            this.gridResult.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+            gridResult_DesignTimeLayout.LayoutString = resources.GetString("gridResult_DesignTimeLayout.LayoutString");
+            this.gridResult.DesignTimeLayout = gridResult_DesignTimeLayout;
+            this.gridResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridResult.DynamicFiltering = true;
+            this.gridResult.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
+            this.gridResult.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+            this.gridResult.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+            this.gridResult.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridResult.FrozenColumns = 2;
+            this.gridResult.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+            this.gridResult.GroupByBoxVisible = false;
+            this.gridResult.HideSelection = Janus.Windows.GridEX.HideSelection.Highlight;
+            this.gridResult.Location = new System.Drawing.Point(0, 268);
+            this.gridResult.Name = "gridResult";
+            this.gridResult.RecordNavigator = true;
+            this.gridResult.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+            this.gridResult.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.True;
+            this.gridResult.Size = new System.Drawing.Size(875, 259);
+            this.gridResult.TabIndex = 27;
             // 
             // frm_BaoCaoDanhSachBenhNhan_TestType
             // 
@@ -352,7 +361,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_DanhSachBenhNhan_TestType_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_DanhSachBenhNhan_TestType_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.gridResult)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).EndInit();
             this.uiGroupBox2.ResumeLayout(false);
@@ -360,13 +368,13 @@
             this.sysColor.ResumeLayout(false);
             this.sysColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridResult)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Janus.Windows.GridEX.GridEX gridResult;
         private System.Windows.Forms.GroupBox groupBox2;
         private Janus.Windows.EditControls.UIGroupBox uiGroupBox2;
         private Janus.Windows.EditControls.UICheckBox chkTongBNHoanTatXN;
@@ -389,6 +397,8 @@
         private Janus.Windows.EditControls.UICheckBox chkChuaHoanTat;
         private Janus.Windows.EditControls.UIButton btnExportExel;
         internal Janus.Windows.GridEX.Export.GridEXExporter GrdListExporter;
+        private Janus.Windows.EditControls.UICheckBox chkChuaKham;
+        private Janus.Windows.GridEX.GridEX gridResult;
 
 
 

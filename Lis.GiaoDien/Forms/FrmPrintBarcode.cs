@@ -21,7 +21,7 @@ namespace Lis.GiaoDien.Forms
         }
 
         public int sobatdau = 0;
-        public int soketthuc = 0;
+        public long soketthuc = 0;
         private void frmPrintBarcode_Load(object sender, EventArgs e)
         {
             try
@@ -68,8 +68,8 @@ namespace Lis.GiaoDien.Forms
                 {
                     a.chk4so = false;
                 }
-                a.sobatdau = Utility.Int16Dbnull(nmrFrom.Value);
-                a.Soketthuc = Utility.Int16Dbnull(nmrTo.Value);
+                a.sobatdau = Utility.Int64Dbnull(nmrFrom.Value);
+                a.Soketthuc = Utility.Int64Dbnull(nmrTo.Value);
                 a.Printbarcode();
                 Cursor = Cursors.Default;
             }

@@ -36,8 +36,8 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
         public static string AppPath = AppDomain.CurrentDomain.BaseDirectory;
         public Int32 marginLeft;
         public Int32 marginTop;
-        public Int32 sobatdau;
-        public Int32 Soketthuc;
+        public long sobatdau;
+        public long Soketthuc;
         public bool chk4so;
         public Int32 marginleft2;
         public Margins margins = new Margins();
@@ -179,12 +179,12 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                                                                 departmentId, "", vIsFinal, globalVariables.UserName, dangkyxn)
                         .GetDataSet().Tables[0];
                     if (!mv_DTPatientInfor.Columns.Contains("CLSID"))
-                        mv_DTPatientInfor.Columns.Add("CLSID", typeof (Int32));
+                        mv_DTPatientInfor.Columns.Add("CLSID", typeof (Int64));
                     foreach (DataRow row in mv_DTPatientInfor.Rows)
                     {
                         try
                         {
-                            row["CLSID"] = Utility.Int32Dbnull(row[LPatientInfo.Columns.CanLamSangId], 0);
+                            row["CLSID"] = Utility.Int64Dbnull(row[LPatientInfo.Columns.CanLamSangId], 0);
                         }
                         catch (Exception)
                         {
@@ -1307,6 +1307,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
             }
         }
 
+     
         private void PrintPageHandler(object sender, PrintPageEventArgs e)
         {
             //Me.Barcode1.Font = New System.Drawing.Font("Times New Roman", (8.25! / (zoom Mod 5)), System.Drawing.FontStyle.Bold)
@@ -1414,8 +1415,8 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                     //ProgressBar1.Maximum = (Convert.ToInt32(a.NmrTo.Value) + 1 - Convert.ToInt32(a.NmrFrom.Value)) *
                     //              Convert.ToInt32(_myProperties.SoLuongIn);
                     int i = 0;
-                    progressBar.Maximum = Soketthuc;
-                    for (i = Convert.ToInt32(sobatdau); i <= Convert.ToInt32(Soketthuc); i++)
+                  //  progressBar.Maximum = Utility.Int64Dbnull(Soketthuc);
+                    for (i = Convert.ToInt32(sobatdau); i <= Convert.ToInt64(Soketthuc); i++)
                     {
                         string str = null;
                         str = a.txtXNid.Text;
@@ -1426,7 +1427,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                             str += a.dtpNgay.Value.ToString("dd");
                         }
                         string stt = null;
-                        if (_myProperties.InBarcodeTheoSo == 5)
+                        if (_myProperties.XNInBarcodeTheoSo == 5)
                         {
                             stt = i.ToString("00000");
                         }
@@ -3218,7 +3219,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
         {
             int code = Utility.Int16Dbnull(txtBarcode.Text.Length);
             
-            if (code == _myProperties.InBarcodeTheoSo)
+            if (code == _myProperties.XNInBarcodeTheoSo)
             {
                 cmdSearch.PerformClick();
             }
@@ -3239,7 +3240,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
         private void txtPID_TextChanged(object sender, EventArgs e)
         {
             int pid = Utility.Int16Dbnull(txtPID.Text.Length);
-            if (pid == _myProperties.DoDaiBarcode )
+            if (pid == _myProperties.PIDDoDaiBarcode )
             {
                 cmdSearch.PerformClick();
             }

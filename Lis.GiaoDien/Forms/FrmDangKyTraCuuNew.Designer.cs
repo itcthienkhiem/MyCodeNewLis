@@ -33,12 +33,12 @@
             Janus.Windows.GridEX.GridEXLayout grdTestType_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdPatients_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdTestTypeRegList_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel1 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel13 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
             Janus.Windows.GridEX.GridEXLayout grdResultDetail_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdTestInfo_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdTestInfoModification_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             Janus.Windows.GridEX.GridEXLayout grdResultModification_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel2 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel14 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
             this.tabAll = new Janus.Windows.UI.Tab.UITab();
             this.tabPatientInfo = new Janus.Windows.UI.Tab.UITabPage();
             this.btnConfig = new System.Windows.Forms.Button();
@@ -755,16 +755,15 @@
             // 
             this.Barcode1.BackColor = System.Drawing.Color.White;
             this.Barcode1.BarColor = System.Drawing.Color.Black;
-            this.Barcode1.BarRatio = 2F;
+            this.Barcode1.BarRatio = 1F;
             this.Barcode1.Data = "00000000000";
             this.Barcode1.DataExtension = null;
             this.Barcode1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Barcode1.Location = new System.Drawing.Point(210, 119);
+            this.Barcode1.Location = new System.Drawing.Point(247, 119);
             this.Barcode1.Name = "Barcode1";
-            this.Barcode1.Size = new System.Drawing.Size(236, 89);
+            this.Barcode1.Size = new System.Drawing.Size(349, 89);
             this.Barcode1.Symbology = Mabry.Windows.Forms.Barcode.Barcode.BarcodeSymbologies.Code128;
             this.Barcode1.TabIndex = 105;
-            this.Barcode1.Text = "00000000000";
             this.Barcode1.Visible = false;
             // 
             // grdTestTypeRegList
@@ -792,14 +791,14 @@
             // 
             this.uiStatusBar1.Location = new System.Drawing.Point(0, 314);
             this.uiStatusBar1.Name = "uiStatusBar1";
-            uiStatusBarPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel1.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel1.Key = "";
-            uiStatusBarPanel1.ProgressBarValue = 0;
-            uiStatusBarPanel1.Text = "Tick: Đăng ký chạy lại test đối với các loại XN hai chiều";
-            uiStatusBarPanel1.Width = 368;
+            uiStatusBarPanel13.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel13.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel13.Key = "";
+            uiStatusBarPanel13.ProgressBarValue = 0;
+            uiStatusBarPanel13.Text = "Tick: Đăng ký chạy lại test đối với các loại XN hai chiều";
+            uiStatusBarPanel13.Width = 368;
             this.uiStatusBar1.Panels.AddRange(new Janus.Windows.UI.StatusBar.UIStatusBarPanel[] {
-            uiStatusBarPanel1});
+            uiStatusBarPanel13});
             this.uiStatusBar1.Size = new System.Drawing.Size(605, 23);
             this.uiStatusBar1.TabIndex = 0;
             this.uiStatusBar1.VisualStyle = Janus.Windows.UI.VisualStyle.VS2005;
@@ -1271,14 +1270,14 @@
             // 
             this.uiStatusBar2.Location = new System.Drawing.Point(0, 517);
             this.uiStatusBar2.Name = "uiStatusBar2";
-            uiStatusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel2.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel2.Key = "";
-            uiStatusBarPanel2.ProgressBarValue = 0;
-            uiStatusBarPanel2.Text = "Sửa Barcode trực tiếp trên lưới để chuyển BN";
-            uiStatusBarPanel2.Width = 307;
+            uiStatusBarPanel14.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel14.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel14.Key = "";
+            uiStatusBarPanel14.ProgressBarValue = 0;
+            uiStatusBarPanel14.Text = "Sửa Barcode trực tiếp trên lưới để chuyển BN";
+            uiStatusBarPanel14.Width = 307;
             this.uiStatusBar2.Panels.AddRange(new Janus.Windows.UI.StatusBar.UIStatusBarPanel[] {
-            uiStatusBarPanel2});
+            uiStatusBarPanel14});
             this.uiStatusBar2.Size = new System.Drawing.Size(1098, 23);
             this.uiStatusBar2.TabIndex = 46;
             this.uiStatusBar2.VisualStyle = Janus.Windows.UI.VisualStyle.VS2005;

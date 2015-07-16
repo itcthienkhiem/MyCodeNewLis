@@ -305,6 +305,8 @@ namespace Lis.Report.UI.Datasets {
             
             private global::System.Data.DataColumn columnInsurance_Num;
             
+            private global::System.Data.DataColumn columnBarcodeXN;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -444,6 +446,14 @@ namespace Lis.Report.UI.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BarcodeXNColumn {
+                get {
+                    return this.columnBarcodeXN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -479,7 +489,7 @@ namespace Lis.Report.UI.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Patient_ID, string Patient_Name, string ObjectType_Name, string Sex, string Department_Name, string Address, string AGE, string Diagnostic, string Test_Result, string Department, string AllResult, string AllResult2, string Insurance_Num) {
+            public DataTable1Row AddDataTable1Row(string Patient_ID, string Patient_Name, string ObjectType_Name, string Sex, string Department_Name, string Address, string AGE, string Diagnostic, string Test_Result, string Department, string AllResult, string AllResult2, string Insurance_Num, string BarcodeXN) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Patient_ID,
@@ -494,7 +504,8 @@ namespace Lis.Report.UI.Datasets {
                         Department,
                         AllResult,
                         AllResult2,
-                        Insurance_Num};
+                        Insurance_Num,
+                        BarcodeXN};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -530,6 +541,7 @@ namespace Lis.Report.UI.Datasets {
                 this.columnAllResult = base.Columns["AllResult"];
                 this.columnAllResult2 = base.Columns["AllResult2"];
                 this.columnInsurance_Num = base.Columns["Insurance_Num"];
+                this.columnBarcodeXN = base.Columns["BarcodeXN"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +573,8 @@ namespace Lis.Report.UI.Datasets {
                 base.Columns.Add(this.columnAllResult2);
                 this.columnInsurance_Num = new global::System.Data.DataColumn("Insurance_Num", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInsurance_Num);
+                this.columnBarcodeXN = new global::System.Data.DataColumn("BarcodeXN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBarcodeXN);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -911,6 +925,22 @@ namespace Lis.Report.UI.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BarcodeXN {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.BarcodeXNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BarcodeXN\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.BarcodeXNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPatient_IDNull() {
                 return this.IsNull(this.tableDataTable1.Patient_IDColumn);
             }
@@ -1063,6 +1093,18 @@ namespace Lis.Report.UI.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetInsurance_NumNull() {
                 this[this.tableDataTable1.Insurance_NumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBarcodeXNNull() {
+                return this.IsNull(this.tableDataTable1.BarcodeXNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBarcodeXNNull() {
+                this[this.tableDataTable1.BarcodeXNColumn] = global::System.Convert.DBNull;
             }
         }
         

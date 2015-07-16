@@ -327,7 +327,7 @@ Class FrmImportFromExcel
     Private Function InsertPatientInfo(ByVal pid As String, ByVal name As String, ByVal addr As String, _
                                    ByVal sex As Boolean?, ByVal birth As Integer, ByVal DOB As String, _
                                    ByVal testdate As DateTime, ByVal lotid As Integer, ByVal insuranse As String, _
-                                   ByVal Diagnostic As String, ByVal nghenghiep As String, ByVal chucvu As String) As Int64
+                                   ByVal Diagnostic As String, ByVal nghenghiep As String, ByVal chucvu As String, ByVal canlamsangid As String) As Int64
 
         Dim Patient_ID As Int64
 
@@ -363,6 +363,7 @@ Class FrmImportFromExcel
                 lp.ChucVu = chucvu
                 lp.NgheNghiep = nghenghiep
                 lp.DepartmentName = Utility.Int16Dbnull(cboUnit.SelectedText)
+                lp.CanLamSangId = Utility.Int16Dbnull(canlamsangid)
                 lp.IsNew = True
                 lp.Save()
                 Patient_ID = getExactlyMaxID()
@@ -377,8 +378,8 @@ Class FrmImportFromExcel
                 Patient_ID = Utility.Int32Dbnull(PatientInfo.Rows(0)("Patient_ID"))
                 Dim departmentId = Utility.Int16Dbnull(cboUnit.SelectedValue)
                 Dim DepartmentName = Utility.Int16Dbnull(cboUnit.SelectedText)
-                Dim update = New Update(LPatientInfo.Schema.Name).Set(LPatientInfo.Columns.Pid).EqualTo(pid).Set(LPatientInfo.Columns.ObjectType).EqualTo(Utility.Int16Dbnull(cboObjType.SelectedValue)).Set(LPatientInfo.Columns.PatientName).EqualTo(name).Set(LPatientInfo.Columns.Address).EqualTo(addr).Set(LPatientInfo.Columns.Sex).EqualTo(sex).Set(LPatientInfo.Columns.YearBirth).EqualTo(birth).Set(LPatientInfo.Columns.Dob).EqualTo(DOB).Set(LPatientInfo.Columns.Diagnostic).EqualTo(Diagnostic).Set(LPatientInfo.Columns.InsuranceNum).EqualTo(insuranse).Set(LPatientInfo.Columns.NgheNghiep).EqualTo(nghenghiep).Set(LPatientInfo.Columns.ChucVu).EqualTo(chucvu).Set(LPatientInfo.Columns.Dateupdate).EqualTo(testdate).Set(LPatientInfo.Columns.DepartmentID).EqualTo(departmentId).Set(LPatientInfo.Columns.DepartmentName).EqualTo(DepartmentName).Where(LPatientInfo.Columns.PatientId).IsEqualTo(Patient_ID).Execute()
-               
+                Dim update = New Update(LPatientInfo.Schema.Name).Set(LPatientInfo.Columns.CanLamSangId).EqualTo(Utility.Int16Dbnull(canlamsangid)).Set(LPatientInfo.Columns.Pid).EqualTo(pid).Set(LPatientInfo.Columns.ObjectType).EqualTo(Utility.Int16Dbnull(cboObjType.SelectedValue)).Set(LPatientInfo.Columns.PatientName).EqualTo(name).Set(LPatientInfo.Columns.Address).EqualTo(addr).Set(LPatientInfo.Columns.Sex).EqualTo(sex).Set(LPatientInfo.Columns.YearBirth).EqualTo(birth).Set(LPatientInfo.Columns.Dob).EqualTo(DOB).Set(LPatientInfo.Columns.Diagnostic).EqualTo(Diagnostic).Set(LPatientInfo.Columns.InsuranceNum).EqualTo(insuranse).Set(LPatientInfo.Columns.NgheNghiep).EqualTo(nghenghiep).Set(LPatientInfo.Columns.ChucVu).EqualTo(chucvu).Set(LPatientInfo.Columns.Dateupdate).EqualTo(testdate).Set(LPatientInfo.Columns.DepartmentID).EqualTo(departmentId).Set(LPatientInfo.Columns.DepartmentName).EqualTo(DepartmentName).Where(LPatientInfo.Columns.PatientId).IsEqualTo(Patient_ID).Execute()
+
                 If IsNumeric(Patient_ID) Then
                     Return Patient_ID
                 Else
@@ -938,47 +939,51 @@ Class FrmImportFromExcel
             Try
                 ''Đổi Header Column về mặc định
                 If paramTable.Columns.Count >= 9 Then
+                    If Not paramTable.Columns.Contains("STT") Then
+                        paramTable.Columns(0).ColumnName = "STT"
+                    End If
                     If Not paramTable.Columns.Contains("PID") Then
-                        paramTable.Columns(0).ColumnName = "PID"
+                        paramTable.Columns(1).ColumnName = "PID"
                     End If
                     If Not paramTable.Columns.Contains("Patient_Name") Then
-                        paramTable.Columns(1).ColumnName = "Patient_Name"
+                        paramTable.Columns(2).ColumnName = "Patient_Name"
                     End If
                     If Not paramTable.Columns.Contains("DOB") Then
-                        paramTable.Columns(2).ColumnName = "DOB"
+                        paramTable.Columns(3).ColumnName = "DOB"
                     End If
                     If Not paramTable.Columns.Contains("Sex") Then
-                        paramTable.Columns(3).ColumnName = "Sex"
+                        paramTable.Columns(4).ColumnName = "Sex"
                     End If
                     If Not paramTable.Columns.Contains("NgayVaoCongTy") Then
-                        paramTable.Columns(4).ColumnName = "NgayVaoCongTy"
+                        paramTable.Columns(5).ColumnName = "NgayVaoCongTy"
                     End If
                     If Not paramTable.Columns.Contains("Address") Then
-                        paramTable.Columns(5).ColumnName = "Address"
+                        paramTable.Columns(6).ColumnName = "Address"
                     End If
-                   
+
                     If Not paramTable.Columns.Contains("BoPhan") Then
-                        paramTable.Columns(6).ColumnName = "BoPhan"
+                        paramTable.Columns(7).ColumnName = "BoPhan"
                     End If
                     If Not paramTable.Columns.Contains("PhanXuong") Then
-                        paramTable.Columns(7).ColumnName = "PhanXuong"
+                        paramTable.Columns(8).ColumnName = "PhanXuong"
                     End If
                     If Not paramTable.Columns.Contains("DonVi") Then
-                        paramTable.Columns(8).ColumnName = "DonVi"
+                        paramTable.Columns(9).ColumnName = "DonVi"
                     End If
                     If Not paramTable.Columns.Contains("Diagnostic") Then
-                        paramTable.Columns(9).ColumnName = "Diagnostic"
+                        paramTable.Columns(10).ColumnName = "Diagnostic"
                     End If
                     If Not paramTable.Columns.Contains("Barcode") Then
-                        paramTable.Columns(10).ColumnName = "Barcode"
+                        paramTable.Columns(11).ColumnName = "Barcode"
                     End If
+                   
                 End If
 
                 ''Chèn cột PID vào datatable
                 If Not paramTable.Columns.Contains("PID") Then
                     Dim dc As New DataColumn("PID")
                     paramTable.Columns.Add(dc)
-                    dc.SetOrdinal(0)
+                    dc.SetOrdinal(1)
                 End If
                 If Not paramTable.Columns.Contains("Age") Then
                     Dim dc As New DataColumn("Age")
@@ -1040,7 +1045,7 @@ Class FrmImportFromExcel
                 If Not paramTable.Columns.Contains("PID") Then
                     Dim dc As New DataColumn("PID")
                     paramTable.Columns.Add(dc)
-                    dc.SetOrdinal(0)
+                    dc.SetOrdinal(1)
 
                 End If
                 If Not paramTable.Columns.Contains("Age") Then
@@ -1451,12 +1456,13 @@ Class FrmImportFromExcel
                             Dim nghenghiep As String = Utility.sDbnull(dr("PhanXuong"))
                             Dim Donvi As String = Utility.sDbnull(dr("DonVi"))
                             Dim chucvu As String = Utility.sDbnull(dr("BoPhan"))
+                            Dim idcanlamsang As String = Utility.sDbnull(dr("STT")).Trim()
                             Dim TuoiNghe As String = Utility.sDbnull(dr("NgayVaoCongTy"))
                             'Dim tinhtuoinghe= 
                             Dim TimeSpan As TimeSpan = DateTime.Parse(DateTime.Now) - DateTime.Parse(TuoiNghe)
                             Dim tinhtuoinghe As Integer = Math.Round(TimeSpan.TotalDays) / 30
                             Dim dob As Object = dr("DOB")
-                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu)
+                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu, idcanlamsang)
                             dr("Check") = False
                         Loop Until (patientId <> -1) Or (++retry > 5)
                         If retry > 5 Then
@@ -1521,12 +1527,13 @@ Class FrmImportFromExcel
                             Dim nghenghiep As String = Utility.sDbnull(dr("PhanXuong"))
                             Dim Donvi As String = Utility.sDbnull(dr("DonVi"))
                             Dim chucvu As String = Utility.sDbnull(dr("BoPhan"))
+                            Dim idcanlamsang As String = Utility.sDbnull(dr("STT")).Trim()
                             Dim TuoiNghe As String = Utility.sDbnull(dr("NgayVaoCongTy"))
                             'Dim tinhtuoinghe= 
                             Dim TimeSpan As TimeSpan = DateTime.Parse(DateTime.Now) - DateTime.Parse(TuoiNghe)
                             Dim tinhtuoinghe As Integer = Math.Round(TimeSpan.TotalDays) / 30
                             Dim dob As Object = dr("DOB")
-                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu)
+                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu, idcanlamsang)
                             dr("Check") = False
                         Loop Until (patientId <> -1) Or (++retry > 5)
                         If retry > 5 Then

@@ -73,7 +73,6 @@ C:\Users\hadk\Documents\GitHub\UINew\Lis.GiaoDien\obj\Debug\Lis.GiaoDien.csproj.
 C:\Users\hadk\Documents\GitHub\UINew\Lis.GiaoDien\obj\Debug\Lis.GiaoDien.dll.licenses
 C:\Users\hadk\Documents\GitHub\UINew\Lis.GiaoDien\obj\Debug\Lis.GiaoDien.dll
 C:\Users\hadk\Documents\GitHub\UINew\Lis.GiaoDien\obj\Debug\Lis.GiaoDien.pdb
-C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.GiaoDien\obj\Debug\Lis.GiaoDien.csprojResolveAssemblyReference.cache
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.GiaoDien\obj\Debug\Vietbait.Lablink.TestInformation.UI.Forms.frm_InPhieuKetQua.resources
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.GiaoDien\obj\Debug\Vietbait.Lablink.TestInformation.UI.Forms.FrmDangKyTraCuuNew.resources
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.GiaoDien\obj\Debug\Vietbait.Lablink.TestInformation.UI.Forms.frm_InPhieuChiDinh.resources

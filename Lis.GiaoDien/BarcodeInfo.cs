@@ -84,9 +84,9 @@ namespace Lis.LoadData
             {
                 var vBarcode = new Barcode();
                 vBarcode.Data = vBarcodeData;
-                vBarcode.Size = new Size(600, 300);
+                vBarcode.Size = new Size(600, 600);
                 //vBarcode.Font = new Font("Arial", 44, FontStyle.Regular, GraphicsUnit.Point, 0); 
-                vBarcode.Font = new Font("Arial", 44, FontStyle.Regular, GraphicsUnit.Point, 0);
+                vBarcode.Font = new Font("Arial", 100, FontStyle.Regular, GraphicsUnit.Point, 0);
                 vBarcode.Symbology = Barcode.BarcodeSymbologies.Code128;
                 return vBarcode;
             }

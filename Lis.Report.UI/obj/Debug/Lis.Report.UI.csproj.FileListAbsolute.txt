@@ -133,4 +133,3 @@ C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.Report.UI\obj\Debug\Lis.Report.U
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.Report.UI\obj\Debug\Lis.Report.UI.dll.licenses
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.Report.UI\obj\Debug\Lis.Report.UI.dll
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.Report.UI\obj\Debug\Lis.Report.UI.pdb
-C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.Report.UI\obj\Debug\Lis.Report.UI.csprojResolveAssemblyReference.cache

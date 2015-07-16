@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Drawing.Design;
+using SubSonic;
 
 namespace Vietbait.Lablink.TestInformation.UI.Forms
 {
@@ -16,19 +17,19 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
             TieuDeInPhieuKq = "Phiếu kết quả";
             ChieuCao = 100;
             ChieuRong = 80;
-            SoTemp = 2;
+            SoTemp = 3;
             CanGiua = 10;
             CanLe = 0;
             CanTraiPhai = 1;
             SoLuongIn = 1;
             CanTop = 0;
             TieuDeInXNKhac = "IN XN KHAC";
-            DoDaiBarcode = 5;
+            PIDDoDaiBarcode = 8;
             Height = 200;
             Width = 200;
             CauHinhInBarcode = true;
             InBarcodeCoNgay = true;
-            InBarcodeTheoSo = 5;
+            XNInBarcodeTheoSo = 5;
             ConfirmResult = true;
         }
 
@@ -119,10 +120,10 @@ DisplayName("Height"),]
 Description("Width"),
 DisplayName("Width"),]
         public int Width { get; set; }
-        [Browsable(true), ReadOnly(false), Category("Config Barcode"),
-Description("Độ dài barcode"),
-DisplayName("Độ dài barcode"),]
-        public int DoDaiBarcode { get; set; }
+        [Browsable(true), ReadOnly(false), Category("Seach Barcode"),
+Description("Độ dài PID barcode"),
+DisplayName("Độ dài PID barcode"),]
+        public int PIDDoDaiBarcode { get; set; }
         [Browsable(true), ReadOnly(false), Category("Config Barcode"),
 Description("Cấu hình in barcode"),
 DisplayName("Cấu hình in barcode"),]
@@ -131,10 +132,10 @@ DisplayName("Cấu hình in barcode"),]
 Description("In barcode có ngày"),
 DisplayName("In barcode có ngày"),]
         public bool InBarcodeCoNgay { get; set; }
-        [Browsable(true), ReadOnly(false), Category("Config Barcode"),
-Description("Độ dài barcode khi in"),
-DisplayName("Độ dài barcode khi in"),]
-        public int InBarcodeTheoSo { get; set; }
+        [Browsable(true), ReadOnly(false), Category("Seach Barcode"),
+Description("Độ dài XN barcode  "),
+DisplayName("Độ dài XN barcode in"),]
+        public int XNInBarcodeTheoSo { get; set; }
         [Browsable(true), ReadOnly(false), Category("Xác nhận Kết quả"),
 Description("Xác nhận Kết quả"),
 DisplayName("Xác nhận Kết quả"),]

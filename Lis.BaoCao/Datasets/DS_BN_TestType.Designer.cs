@@ -307,6 +307,8 @@ namespace Lis.BaoCao.Datasets {
             
             private global::System.Data.DataColumn columnPID;
             
+            private global::System.Data.DataColumn columnCanLamSang_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -454,6 +456,14 @@ namespace Lis.BaoCao.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CanLamSang_IDColumn {
+                get {
+                    return this.columnCanLamSang_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -489,7 +499,7 @@ namespace Lis.BaoCao.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Patient_ID, string Patient_Name, string ObjectType_Name, string Sex, string Department_Name, string Address, string AGE, string Diagnostic, string Test_Result, string Department, string AllResult, string AllResult2, string Insurance_Num, string PID) {
+            public DataTable1Row AddDataTable1Row(string Patient_ID, string Patient_Name, string ObjectType_Name, string Sex, string Department_Name, string Address, string AGE, string Diagnostic, string Test_Result, string Department, string AllResult, string AllResult2, string Insurance_Num, string PID, string CanLamSang_ID) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Patient_ID,
@@ -505,7 +515,8 @@ namespace Lis.BaoCao.Datasets {
                         AllResult,
                         AllResult2,
                         Insurance_Num,
-                        PID};
+                        PID,
+                        CanLamSang_ID};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -542,6 +553,7 @@ namespace Lis.BaoCao.Datasets {
                 this.columnAllResult2 = base.Columns["AllResult2"];
                 this.columnInsurance_Num = base.Columns["Insurance_Num"];
                 this.columnPID = base.Columns["PID"];
+                this.columnCanLamSang_ID = base.Columns["CanLamSang_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -575,6 +587,8 @@ namespace Lis.BaoCao.Datasets {
                 base.Columns.Add(this.columnInsurance_Num);
                 this.columnPID = new global::System.Data.DataColumn("PID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPID);
+                this.columnCanLamSang_ID = new global::System.Data.DataColumn("CanLamSang_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCanLamSang_ID);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -941,6 +955,22 @@ namespace Lis.BaoCao.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CanLamSang_ID {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.CanLamSang_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CanLamSang_ID\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.CanLamSang_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPatient_IDNull() {
                 return this.IsNull(this.tableDataTable1.Patient_IDColumn);
             }
@@ -1105,6 +1135,18 @@ namespace Lis.BaoCao.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPIDNull() {
                 this[this.tableDataTable1.PIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCanLamSang_IDNull() {
+                return this.IsNull(this.tableDataTable1.CanLamSang_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCanLamSang_IDNull() {
+                this[this.tableDataTable1.CanLamSang_IDColumn] = global::System.Convert.DBNull;
             }
         }
         

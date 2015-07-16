@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTiepDonDangKyNew));
             Janus.Windows.GridEX.GridEXLayout grdTestInfo_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel19 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel20 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel21 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel1 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel2 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel3 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
             this.uiGroupBox3 = new Janus.Windows.EditControls.UIGroupBox();
             this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
@@ -217,7 +217,7 @@
             this.cmdEscape.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmdEscape.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cmdEscape.Name = "cmdEscape";
-            this.cmdEscape.Size = new System.Drawing.Size(105, 36);
+            this.cmdEscape.Size = new System.Drawing.Size(105, 28);
             this.cmdEscape.Tag = "";
             this.cmdEscape.Text = "Thoát (Esc)";
             this.cmdEscape.ToolTipText = "Thoát (Esc)";
@@ -507,11 +507,11 @@
             this.Label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(65, 248);
+            this.Label6.Location = new System.Drawing.Point(13, 245);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(52, 16);
+            this.Label6.Size = new System.Drawing.Size(100, 16);
             this.Label6.TabIndex = 166;
-            this.Label6.Text = "Địa chỉ";
+            this.Label6.Text = "Chỉ định khám";
             // 
             // lblCanLamSangID
             // 
@@ -952,28 +952,28 @@
             // 
             this.statusBar.Location = new System.Drawing.Point(0, 653);
             this.statusBar.Name = "statusBar";
-            uiStatusBarPanel19.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel19.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel19.Key = "";
-            uiStatusBarPanel19.ProgressBarValue = 0;
-            uiStatusBarPanel19.Text = "Ctrl+A: Chọn Tất Cả Chi Tiết";
-            uiStatusBarPanel19.Width = 194;
-            uiStatusBarPanel20.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel20.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel20.Key = "";
-            uiStatusBarPanel20.ProgressBarValue = 0;
-            uiStatusBarPanel20.Text = "Ctrl+U: Hủy Tất Cả Chi Tiết";
-            uiStatusBarPanel20.Width = 185;
-            uiStatusBarPanel21.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel21.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel21.Key = "";
-            uiStatusBarPanel21.ProgressBarValue = 0;
-            uiStatusBarPanel21.Text = "Esc: Thoát";
-            uiStatusBarPanel21.Width = 81;
+            uiStatusBarPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel1.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel1.Key = "";
+            uiStatusBarPanel1.ProgressBarValue = 0;
+            uiStatusBarPanel1.Text = "Ctrl+A: Chọn Tất Cả Chi Tiết";
+            uiStatusBarPanel1.Width = 194;
+            uiStatusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel2.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel2.Key = "";
+            uiStatusBarPanel2.ProgressBarValue = 0;
+            uiStatusBarPanel2.Text = "Ctrl+U: Hủy Tất Cả Chi Tiết";
+            uiStatusBarPanel2.Width = 185;
+            uiStatusBarPanel3.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel3.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel3.Key = "";
+            uiStatusBarPanel3.ProgressBarValue = 0;
+            uiStatusBarPanel3.Text = "Esc: Thoát";
+            uiStatusBarPanel3.Width = 81;
             this.statusBar.Panels.AddRange(new Janus.Windows.UI.StatusBar.UIStatusBarPanel[] {
-            uiStatusBarPanel19,
-            uiStatusBarPanel20,
-            uiStatusBarPanel21});
+            uiStatusBarPanel1,
+            uiStatusBarPanel2,
+            uiStatusBarPanel3});
             this.statusBar.Size = new System.Drawing.Size(1008, 29);
             this.statusBar.TabIndex = 1;
             this.statusBar.VisualStyle = Janus.Windows.UI.VisualStyle.VS2005;

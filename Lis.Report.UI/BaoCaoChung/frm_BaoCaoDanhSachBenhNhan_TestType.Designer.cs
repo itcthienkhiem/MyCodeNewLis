@@ -34,6 +34,7 @@
             this.gridResult = new Janus.Windows.GridEX.GridEX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
+            this.btnExportExel = new Janus.Windows.EditControls.UIButton();
             this.chkChuaHoanTat = new Janus.Windows.EditControls.UICheckBox();
             this.chkTongBNHoanTatXN = new Janus.Windows.EditControls.UICheckBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnExportExel = new Janus.Windows.EditControls.UIButton();
             this.GrdListExporter = new Janus.Windows.GridEX.Export.GridEXExporter(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridResult)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -122,6 +122,18 @@
             this.uiGroupBox2.Size = new System.Drawing.Size(869, 142);
             this.uiGroupBox2.TabIndex = 86;
             this.uiGroupBox2.Text = "Thông tin tìm kiếm";
+            // 
+            // btnExportExel
+            // 
+            this.btnExportExel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExel.Image")));
+            this.btnExportExel.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnExportExel.Location = new System.Drawing.Point(401, 105);
+            this.btnExportExel.Name = "btnExportExel";
+            this.btnExportExel.Size = new System.Drawing.Size(157, 29);
+            this.btnExportExel.TabIndex = 82;
+            this.btnExportExel.Text = "Xuất File Exel";
+            this.btnExportExel.Click += new System.EventHandler(this.btnExportExel_Click);
             // 
             // chkChuaHoanTat
             // 
@@ -318,18 +330,6 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "DANH SÁCH BỆNH NHÂN THEO XÉT NGHIỆM";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnExportExel
-            // 
-            this.btnExportExel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportExel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExel.Image")));
-            this.btnExportExel.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnExportExel.Location = new System.Drawing.Point(401, 105);
-            this.btnExportExel.Name = "btnExportExel";
-            this.btnExportExel.Size = new System.Drawing.Size(157, 29);
-            this.btnExportExel.TabIndex = 82;
-            this.btnExportExel.Text = "Xuất File Exel";
-            this.btnExportExel.Click += new System.EventHandler(this.btnExportExel_Click);
             // 
             // GrdListExporter
             // 

@@ -105,11 +105,11 @@ namespace VietBaIT.LABLink.Reports.Forms
                     //    cboTestType.Focus();
                     //    return;
                     //}
-                    dtRawResult = BaocaoDSBNtheoTestType(dtpFromDate.Value,
+                    dt = BaocaoDSBNtheoTestType(dtpFromDate.Value,
                                                   dtpToDate.Value,
                                                  cboTestType.SelectedValue.ToString(),0).
                                                   GetDataSet().Tables[0];
-                    if (dtRawResult.Rows.Count <= 0)
+                    if (dt.Rows.Count <= 0)
                     {
                         Utility.ShowMsg("Không tồn tại dữ liệu");
                         gridResult.DataSource = dt;
@@ -119,37 +119,39 @@ namespace VietBaIT.LABLink.Reports.Forms
                     }
 
                     var patientResult = new StringBuilder();
-                    dtRawResult.Rows.InsertAt(dtRawResult.NewRow(), 0);
-                    dtRawResult.Rows[0]["Patient_ID"] = dtRawResult.Rows[1]["Patient_ID"];
-                    dtRawResult.Rows.Add(dtRawResult.NewRow());
-                    for (int i = 1; i <= dtRawResult.Rows.Count - 1; i++)
-                    {
-                        if (Utility.sDbnull(dtRawResult.Rows[i]["Patient_ID"]) !=
-                            Utility.sDbnull(dtRawResult.Rows[i - 1]["Patient_ID"]))
-                        {
-                            var newdr = dt.NewRow();
-                            newdr["PID"] = dtRawResult.Rows[i - 1]["PID"];
-                            newdr["Patient_ID"] = dtRawResult.Rows[i - 1]["Patient_ID"];
-                            newdr["Patient_Name"] = dtRawResult.Rows[i - 1]["Patient_Name"];
-                            newdr["AGE"] = dtRawResult.Rows[i - 1]["AGE"];
-                            newdr["Sex"] = dtRawResult.Rows[i - 1]["Sex"];
-                            newdr["Address"] = dtRawResult.Rows[i - 1]["Address"];
-                            newdr["Insurance_Num"] = dtRawResult.Rows[i - 1]["Insurance_Num"];
-                            newdr["Department"] = dtRawResult.Rows[i - 1]["Department"];
-                            newdr["Diagnostic"] = dtRawResult.Rows[i - 1]["Diagnostic"];
-                            //newdr["AllResult"] = patientResult.ToString();
-                            dt.Rows.Add(newdr);
-                            patientResult = new StringBuilder();
-                        }
-                        //string value;
-                        //value = string.Format(
-                        //       Utility.sDbnull(dtRawResult.Rows[i]["Test_result"]).Trim() != ""
-                        //           ? "{0} {1}; "
-                        //           : "{0} ",
-                        //       Utility.sDbnull(dtRawResult.Rows[i]["Test_Name"]),
-                        //       dtRawResult.Rows[i]["Test_result"]);
-                        //patientResult.Append(value);
-                    }
+                    //dtRawResult.Rows.InsertAt(dtRawResult.NewRow(), 0);
+                    //dtRawResult.Rows[0]["Patient_ID"] = dtRawResult.Rows[1]["Patient_ID"];
+                    //dtRawResult.Rows.Add(dtRawResult.NewRow());
+                    //for (int i = 1; i <= dtRawResult.Rows.Count - 1; i++)
+                    //{
+                    //    if (Utility.sDbnull(dtRawResult.Rows[i]["Patient_ID"]) !=
+                    //        Utility.sDbnull(dtRawResult.Rows[i - 1]["Patient_ID"]))
+                    //    {
+                    //        var newdr = dt.NewRow();
+                    //        newdr["PID"] = dtRawResult.Rows[i - 1]["PID"];
+                    //        newdr["CanLamSang_ID"] = dtRawResult.Rows[i - 1]["CanLamSang_ID"];
+                    //        newdr["BarcodeXN"] = dtRawResult.Rows[i - 1]["BarcodeXN"];
+                    //        newdr["Patient_ID"] = dtRawResult.Rows[i - 1]["Patient_ID"];
+                    //        newdr["Patient_Name"] = dtRawResult.Rows[i - 1]["Patient_Name"];
+                    //        newdr["AGE"] = dtRawResult.Rows[i - 1]["AGE"];
+                    //        newdr["Sex"] = dtRawResult.Rows[i - 1]["Sex"];
+                    //        newdr["Address"] = dtRawResult.Rows[i - 1]["Address"];
+                    //        newdr["Insurance_Num"] = dtRawResult.Rows[i - 1]["Insurance_Num"];
+                    //        newdr["Department"] = dtRawResult.Rows[i - 1]["Department"];
+                    //        newdr["Diagnostic"] = dtRawResult.Rows[i - 1]["Diagnostic"];
+                    //        //newdr["AllResult"] = patientResult.ToString();
+                    //        dt.Rows.Add(newdr);
+                    //        patientResult = new StringBuilder();
+                    //    }
+                    //    //string value;
+                    //    //value = string.Format(
+                    //    //       Utility.sDbnull(dtRawResult.Rows[i]["Test_result"]).Trim() != ""
+                    //    //           ? "{0} {1}; "
+                    //    //           : "{0} ",
+                    //    //       Utility.sDbnull(dtRawResult.Rows[i]["Test_Name"]),
+                    //    //       dtRawResult.Rows[i]["Test_result"]);
+                    //    //patientResult.Append(value);
+                    //}
                 }
                 if(dt.Rows.Count<=0)
                 {

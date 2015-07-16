@@ -19,9 +19,9 @@
   <CanTop>6</CanTop>
   <Height>200</Height>
   <Width>200</Width>
-  <DoDaiBarcode>8</DoDaiBarcode>
+  <PIDDoDaiBarcode>8</PIDDoDaiBarcode>
   <CauHinhInBarcode>false</CauHinhInBarcode>
   <InBarcodeCoNgay>true</InBarcodeCoNgay>
-  <InBarcodeTheoSo>5</InBarcodeTheoSo>
+  <XNInBarcodeTheoSo>5</XNInBarcodeTheoSo>
   <ConfirmResult>true</ConfirmResult>
 </FrmAllMainProperties>

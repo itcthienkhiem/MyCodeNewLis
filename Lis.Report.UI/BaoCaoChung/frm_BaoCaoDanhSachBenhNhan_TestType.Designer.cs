@@ -33,6 +33,7 @@
             Janus.Windows.GridEX.GridEXLayout gridResult_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
+            this.chkChuaKham = new Janus.Windows.EditControls.UICheckBox();
             this.btnExportExel = new Janus.Windows.EditControls.UIButton();
             this.chkChuaHoanTat = new Janus.Windows.EditControls.UICheckBox();
             this.chkTongBNHoanTatXN = new Janus.Windows.EditControls.UICheckBox();
@@ -53,7 +54,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.GrdListExporter = new Janus.Windows.GridEX.Export.GridEXExporter(this.components);
-            this.chkChuaKham = new Janus.Windows.EditControls.UICheckBox();
             this.gridResult = new Janus.Windows.GridEX.GridEX();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
@@ -100,6 +100,17 @@
             this.uiGroupBox2.Size = new System.Drawing.Size(869, 189);
             this.uiGroupBox2.TabIndex = 86;
             this.uiGroupBox2.Text = "Thông tin tìm kiếm";
+            // 
+            // chkChuaKham
+            // 
+            this.chkChuaKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkChuaKham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.chkChuaKham.Location = new System.Drawing.Point(76, 114);
+            this.chkChuaKham.Name = "chkChuaKham";
+            this.chkChuaKham.Size = new System.Drawing.Size(366, 25);
+            this.chkChuaKham.TabIndex = 83;
+            this.chkChuaKham.Text = "Báo cáo danh sách bệnh nhân chưa khám";
+            this.chkChuaKham.CheckedChanged += new System.EventHandler(this.chkChuaKham_CheckedChanged);
             // 
             // btnExportExel
             // 
@@ -309,16 +320,9 @@
             this.label7.Text = "DANH SÁCH BỆNH NHÂN THEO XÉT NGHIỆM";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkChuaKham
+            // GrdListExporter
             // 
-            this.chkChuaKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkChuaKham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.chkChuaKham.Location = new System.Drawing.Point(76, 114);
-            this.chkChuaKham.Name = "chkChuaKham";
-            this.chkChuaKham.Size = new System.Drawing.Size(366, 25);
-            this.chkChuaKham.TabIndex = 83;
-            this.chkChuaKham.Text = "Báo cáo danh sách bệnh nhân chưa khám";
-            this.chkChuaKham.CheckedChanged += new System.EventHandler(this.chkChuaKham_CheckedChanged);
+            this.GrdListExporter.GridEX = this.gridResult;
             // 
             // gridResult
             // 

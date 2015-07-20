@@ -106,3 +106,4 @@ C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\Lis.GiaoDien.dll.config
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\Lis.GiaoDien.dll
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Running\Lis.GiaoDien.pdb
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.GiaoDien\obj\Debug\Lis.GiaoDien.pdb
+C:\Users\hadk\Documents\GitHub\MyCodeNewLis\Lis.GiaoDien\obj\Debug\Lis.GiaoDien.csprojResolveAssemblyReference.cache

@@ -116,8 +116,8 @@ Class FrmImportFromExcel
     End Sub
 
     Private Sub frmLoadExcel_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        TabControl1.TabPages.Remove(TabPage3)
-        TabControl1.TabPages.Remove(TabPage2)
+        'TabControl1.TabPages.Remove(TabPage3)
+        'TabControl1.TabPages.Remove(TabPage2)
         grdTestType.AutoGenerateColumns = False
         grdTestDetail.AutoGenerateColumns = False
         LoadObjType(_tblObjType, cboObjType)

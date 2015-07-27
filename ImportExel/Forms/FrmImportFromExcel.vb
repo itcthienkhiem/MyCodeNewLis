@@ -5,7 +5,6 @@ Imports System.IO
 Imports LIS.DAL
 Imports VNS.Libs
 Imports Utilities
-
 Imports SubSonic
 
 Class FrmImportFromExcel
@@ -116,7 +115,8 @@ Class FrmImportFromExcel
     End Sub
 
     Private Sub frmLoadExcel_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        'TabControl1.TabPages.Remove(TabPage3)
+
+        TabControl1.TabPages.Remove(TabPage3)
         'TabControl1.TabPages.Remove(TabPage2)
         grdTestType.AutoGenerateColumns = False
         grdTestDetail.AutoGenerateColumns = False
@@ -138,7 +138,7 @@ Class FrmImportFromExcel
         For Each dr As DataRow In tblDataConTrol.Rows
             dr("Check") = False
         Next
-
+        ProgressBar1.Minimum = 0
     End Sub
 
 #End Region
@@ -178,7 +178,7 @@ Class FrmImportFromExcel
         Dim dataSet As DataTable
         Dim _workSheet As String()
         Dim namefile As String()
-        namefile = fileName.Split(New Char() {"."})
+        namefile = _fileName.Split(New Char() {"."})
 
         Try
             If (namefile(1).ToString() = "xlsx") Then
@@ -1431,11 +1431,13 @@ Class FrmImportFromExcel
                 '    lotid = GetMaxLOTID()
                 'End If
                 ProgressBar1.Visible = True
-                ProgressBar1.Minimum = 0
-                ProgressBar1.Value = 0
+                ProgressBar1.Minimum = 1
+                ProgressBar1.Value = 1
                 ProgressBar1.Step = 1
                 ProgressBar1.Maximum = _tblPatientList.Rows.Count
+
                 For Each dr As DataRow In _tblPatientList.Rows
+                    Dim BarcodeXN As String
                     If dr("Check") = True Then
                         If grdListPatient.Columns("Patient_Name").Visible = True Then
                             name = dr("Patient_Name")
@@ -1462,7 +1464,9 @@ Class FrmImportFromExcel
                             Dim TimeSpan As TimeSpan = DateTime.Parse(DateTime.Now) - DateTime.Parse(TuoiNghe)
                             Dim tinhtuoinghe As Integer = Math.Round(TimeSpan.TotalDays) / 30
                             Dim dob As Object = dr("DOB")
-                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu, idcanlamsang)
+                            BarcodeXN = Utility.sDbnull(dr("Barcode"))
+                            patientId = GetpatientId(BarcodeXN)
+                            ' patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu, idcanlamsang)
                             dr("Check") = False
                         Loop Until (patientId <> -1) Or (++retry > 5)
                         If retry > 5 Then
@@ -1476,7 +1480,7 @@ Class FrmImportFromExcel
                                 Dim strmessage As String
                                 outbarcode = GetBarcodeFromPatientId(patientId)
                                 If (outbarcode = "-1") Then
-                                    outbarcode = dr("barcode")
+                                    outbarcode = BarcodeXN
                                 End If
                                 'outbarcode = dr("barcode")
                                 InsertTestInfoForPatient(patientId, testType, dtpInputDate.Value, outbarcode, testID, strmessage)
@@ -1492,12 +1496,15 @@ Class FrmImportFromExcel
                         Next
                         dr("Status") = "Updated"
                         ProgressBar1.PerformStep()
+                        Dim percent As Integer = ProgressBar1.Value
+                        ProgressBar1.CreateGraphics().DrawString(percent.ToString() + "%", New Font("Arial", 12, FontStyle.Bold),
+                      Brushes.Black, New PointF(ProgressBar1.Width / 2 - 10, ProgressBar1.Height / 2 - 7))
                         ' ProgressBar1.Value += 1
                     End If
 
                 Next
                 _tblPatientList.AcceptChanges()
-                'ToolStripProgressBar1.Visible = False
+                ToolStripProgressBar1.Visible = False
                 MessageBox.Show("Bạn đã Insert thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 ProgressBar1.Visible = False
             Else
@@ -1565,12 +1572,16 @@ Class FrmImportFromExcel
                         'Next
                         dr("Status") = "Updated"
                         ProgressBar1.PerformStep()
+                        Dim percent As Integer = ProgressBar1.Value
+                        ProgressBar1.CreateGraphics().DrawString(percent.ToString() + "%", New Font("Arial", 12, FontStyle.Bold),
+                      Brushes.Black, New PointF(ProgressBar1.Width / 2 - 10, ProgressBar1.Height / 2 - 7))
                         '  ProgressBar1.Value += 1
                     End If
 
                 Next
                 _tblPatientList.AcceptChanges()
-                'ToolStripProgressBar1.Visible = False
+                ProgressBar1.Visible = False
+                ToolStripProgressBar1.Visible = False
                 MessageBox.Show("Bạn đã Insert thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             End If
@@ -1653,7 +1664,7 @@ Class FrmImportFromExcel
                                         "Employee_Code" & vbCrLf & "Patient_Name" & vbCrLf & "DOB" & vbCrLf & "Sex" & vbCrLf)
                 End If
 
-                Dim _config As String() = File.ReadAllLines(Application.StartupPath & "\JCLV_ImportResultConfig.txt")
+                Dim _config As String() = File.ReadAllLines(Application.StartupPath & "\_Last_JCLV_ColumnsMap.txt")
 
 
                 If _config.Length = 0 Then
@@ -1713,45 +1724,71 @@ Class FrmImportFromExcel
         End If
         Try
             _tblPatientList1 = New DataTable
-
+            ProgressBar1.Visible = True
+            ToolStripProgressBar1.Visible = False
             lbStatus.Text = "Loading.."
             _tblPatientList1 = GetWorksheet(connStr, cboSheet.SelectedItem.ToString())
             _tblResultDisplay = _tblPatientList1.Copy()
+            If (_tblPatientList1.Rows.Count > 0) Then
+                ProgressBar1.Minimum = 1
+                ProgressBar1.Maximum = _tblPatientList1.Rows.Count
 
-            For i = ResultBeginColumn To _tblPatientList1.Columns.Count - 1
-                Dim testcode As String = _tblPatientList1.Columns(i).ColumnName
-                'Dim _temptbl As DataTable =  Utilities.GetDatatable("D_DATA_CONTROL", "Description='" & testcode & "'")
-                Dim _temptbl As DataTable = New [Select]().From(LStandardTest.Schema.Name).Where(LStandardTest.Columns.Description).IsEqualTo(testcode).ExecuteDataSet().Tables(0)
-                If IsDBnullOrNothing(_temptbl) Or (_temptbl.Rows.Count = 0) Then
-                    If MsgBox("Không có XN mã: " & testcode & vbCrLf & "Tiếp tục tải dữ liệu?", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Thông báo") = MsgBoxResult.No Then
-                        txtFileName.Text = String.Empty
-                        connStr = String.Empty
-                        _tblResultDisplay.Clear()
-                        _tblResultDisplay.AcceptChanges()
-                        _tblPatientList1.Dispose()
-                        _tblPatientList1 = Nothing
-                        Exit Sub
+                ProgressBar1.Value = 1
+                ProgressBar1.Step = 1
+               
+                'ChangeHeaderResultTable(_tblResultDisplay)
+                'Dim row As Integer = _tblPatientList1.Columns.Count - 1
+                'For Each row As DataRow In _tblPatientList1.Rows
+                'For i = 0 To _tblPatientList1.Columns.Count - 1
+          For i = 0 To _tblPatientList1.Rows.Count - 1
+                    'If (String.IsNullOrEmpty(_tblPatientList1.Rows(i).Item("STT")) And String.IsNullOrEmpty(_tblPatientList1.Rows(i).Item("BarcodeXN")) And String.IsNullOrEmpty(_tblPatientList1.Rows(i).Item("PID"))) Then
+                    '    'Remove row here, this row do not have any value 
+                    '    _tblPatientList1.Rows.RemoveAt(i)
+                    '    i -= i
+                    'End If
+
+                    Dim testcode As String = _tblPatientList1.Columns(3).ColumnName
+                    'Dim _temptbl As DataTable =  Utilities.GetDatatable("D_DATA_CONTROL", "Description='" & testcode & "'")
+                    Dim _temptbl As DataTable = New [Select]().From(LStandardTest.Schema.Name).Where(LStandardTest.Columns.TestDataId).IsEqualTo(testcode).ExecuteDataSet().Tables(0)
+                    If IsDBnullOrNothing(_temptbl) Or (_temptbl.Rows.Count = 0) Then
+                        If MsgBox("Không có XN mã: " & testcode & vbCrLf & "Tiếp tục tải dữ liệu?", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Thông báo") = MsgBoxResult.No Then
+                            txtFileName.Text = String.Empty
+                            connStr = String.Empty
+                            _tblResultDisplay.Clear()
+                            _tblResultDisplay.AcceptChanges()
+                            _tblPatientList1.Dispose()
+                            _tblPatientList1 = Nothing
+                            Exit Sub
+                        End If
+                        Continue For
                     End If
-                    Continue For
-                End If
 
-                Dim _temprow As DataRow = _temptbl.Rows(0)
-                If Not arrTestParaRow.Contains(testcode) Then arrTestParaRow.Add(testcode, _temprow)
-                _tblResultDisplay.Columns(testcode).ColumnName = _temprow("Data_Name")
-                Dim testtype = GetTestTypeIdFromTestCode(testcode)
-                If Not arrTestType.Contains(testcode) Then arrTestType.Add(testcode, testtype)
-                If Not arrTestOrder.Contains(testtype) Then arrTestOrder.Add(testtype, Utilities.spGetintOder(testtype))
-            Next i
+                    Dim _temprow As DataRow = _temptbl.Rows(0)
+                    If Not arrTestParaRow.Contains(testcode) Then arrTestParaRow.Add(testcode, _temprow)
+                    '_tblResultDisplay.Columns(testcode).ColumnName = _temprow("Data_Name")
+                    Dim testtype = GetTestTypeIdFromTestCode(testcode)
+                    If Not arrTestType.Contains(testcode) Then arrTestType.Add(testcode, testtype)
+                    If Not arrTestOrder.Contains(testtype) Then arrTestOrder.Add(testtype, Utilities.spGetintOder(testtype))
+                    Dim percent As Integer = ProgressBar1.Value
+                    ProgressBar1.CreateGraphics().DrawString(percent.ToString() + "%", New Font("Arial", 10, FontStyle.Regular),
+                        Brushes.Black, New PointF(ProgressBar1.Width / 2 - 10, ProgressBar1.Height / 2 - 7))
 
-            ChangeHeaderResultTable(_tblResultDisplay)
-            ValidateImportedData(_tblResultDisplay, False, False)
-
-            grdDataImported.DataSource = _tblResultDisplay
-            grdDataImported.Columns("PID").Visible = False
-            grdDataImported.Columns("Age").Visible = False
-            grdDataImported.Columns("YearBirth").Visible = False
-            grdDataImported.Columns("NameNoSign").Visible = False
-            lbStatus.Text = "Tổng số: " & _tblPatientList1.Rows.Count.ToString & " bệnh nhân"
+                    'ProgressBar1.Value += 1
+                    ProgressBar1.PerformStep()
+                Next i
+                _tblPatientList1.AcceptChanges()
+                'ChangeHeaderResultTable(_tblResultDisplay)
+                ' ValidateImportedData(_tblResultDisplay, False, False)
+                ProgressBar1.Visible = False
+                grdDataImported.DataSource = _tblPatientList1
+                'grdDataImported.Columns("PID").Visible = False
+                'grdDataImported.Columns("Age").Visible = False
+                'grdDataImported.Columns("YearBirth").Visible = False
+                'grdDataImported.Columns("NameNoSign").Visible = False
+                lbStatus.Text = "Tổng số: " & _tblPatientList1.Rows.Count.ToString & " bệnh nhân"
+            Else
+                MessageBox.Show("Không tồn tại bệnh nhân nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
 
         Catch ex As Exception
             Throw ex
@@ -1763,48 +1800,92 @@ Class FrmImportFromExcel
         Try
 
             methodConnection = Utilities.GetDBConnection
-            ToolStripProgressBar1.Value = 0
-            ToolStripProgressBar1.Maximum = _tblPatientList1.Rows.Count - 1
-            For drcount As Integer = 0 To _tblPatientList1.Rows.Count - 1
-                Dim dr As DataRow = _tblPatientList1.Rows(drcount)
-                Dim testcode As String
-                For i As Byte = ResultBeginColumn To _tblPatientList1.Columns.Count - 1
-                    testcode = _tblPatientList1.Columns(i).ColumnName
-                    If Not arrTestType.Contains(testcode) Then Continue For
-                    Dim testType = GetTestTypeIdFromDescription(testcode)
-                    Dim outbarcode = pTestDate.ToString("yyMMdd") & arrTestOrder(testType) & Utilities.spGetBarcode(dr("JCLV ID"))
-                    Dim patientId = GetPatientIdFromBarcode(outbarcode)
+          
+            _tblPatientList1.Columns.Add("Status", GetType(String))
+            '     For drcount As Integer = 0 To _tblPatientList1.Rows.Count - 1
+            ' Dim dr As DataRow = _tblPatientList1.Rows(drcount)
+            Dim testcode As String
+            Dim barcode As String
+            Dim outbarcode As String
+            Dim testType As Integer
+            Dim pTestId As Integer
+            Dim patientId As String
+            ProgressBar1.Visible = True
+            ToolStripProgressBar1.Visible = False
+            lbStatus.Text = ""
+            lbStatus.Text = "Đang trong quá trình xử lý..."
+            ProgressBar1.Minimum = 1
+                ProgressBar1.Maximum = _tblPatientList1.Rows.Count
+                ProgressBar1.Value = 1
+                ProgressBar1.Step = 1
+            For i = 0 To _tblPatientList1.Rows.Count - 1
+                testcode = _tblPatientList1.Columns(3).ColumnName
+                'For Each row As DataRow In _tblPatientList1.Rows
+                barcode = _tblPatientList1.Rows(i).Item("BarcodeXN")
+                If Not arrTestType.Contains(testcode) Then Continue For
+                testType = GetTestTypeIdFromDescription(testcode)
+                If (barcode.Length = 1) Then
+                    barcode = "0000" + barcode
+                End If
+                If (barcode.Length = 2) Then
+                    barcode = "000" + barcode
+                End If
+                If (barcode.Length = 3) Then
+                    barcode = "00" + barcode
+                End If
+                If (barcode.Length = 4) Then
+                    barcode = "0" + barcode
+                End If
+                outbarcode = barcode
+                patientId = GetPatientIdFromBarcode(outbarcode)
+                If (patientId = "-1") Then Continue For
+                If String.IsNullOrEmpty(Utility.sDbnull(patientId)) Then Continue For
+                pTestId = GetTestIdFromBarcodeAndTestTypeId(patientId, testType)
+                If String.IsNullOrEmpty(Utility.sDbnull(pTestId)) Then Continue For
+                If (outbarcode.Length <= 5) Then
+                    outbarcode = GetBarcodeFromPatientId(patientId)
+                Else
+                    outbarcode = outbarcode
+                End If
 
-                    If String.IsNullOrEmpty(Utility.sDbnull(patientId)) Then Continue For
+                Dim testrow As DataRow = arrTestParaRow(testcode)
+                ' Tiến hành import dữ liệu
+                Dim pDataSeq As Object = testrow("Data_Sequence")
+                Dim pParaName As Object = testrow("Data_Name")
+                Dim pMeasureUnit As Object = testrow("Measure_Unit")
+                Dim pTestResult As Object = _tblPatientList1.Rows(i)(3)
+                Dim pNormalLevel As Object = testrow("Normal_Level")
+                Dim pNormalLevelW As Object = testrow("Normal_LevelW")
 
-                    Dim pTestId = GetTestIdFromBarcodeAndTestTypeId(outbarcode, testType)
+                'Kiểm tra nếu kết quả mới là trắng hoặc rỗng thì không insert vào DB
+                If String.IsNullOrEmpty(pTestResult.ToString()) Then Continue For
+                'Nếu barcode này đã có kết quả thì bỏ qua trong trường hợp check vào tùy chọn
+                If pParaName.ToString().StartsWith("Đường máu") Then Debug.WriteLine("Đường Máu")
+                If cboKeepOldResult.Checked Then
+                    Dim pDetailId = Utilities.GetFieldValue("T_RESULT_DETAIL", "TestDetail_ID", "Barcode='" & outbarcode & "' AND Para_Name = N'" & pParaName & "'")
+                    If Not String.IsNullOrEmpty(Utility.sDbnull(pDetailId)) Then Continue For
+                End If
+                Dim Ok As Boolean = spInsertUpdateResult(pTestId, patientId, testType, "", pTestDate, pDataSeq, outbarcode, pParaName, pTestResult, pMeasureUnit, pNormalLevel, pNormalLevelW)
 
-                    If String.IsNullOrEmpty(Utility.sDbnull(pTestId)) Then Continue For
-                    Dim testrow As DataRow = arrTestParaRow(testcode)
+                If (Ok) Then
+                    _tblPatientList1.Rows(i)("Status") = "Đã cập nhật"
+                Else
+                    _tblPatientList1.Rows(i)("Status") = "Chưa cập nhật"
+                End If
 
-                    ' Tiến hành import dữ liệu
-                    Dim pDataSeq As Object = testrow("Data_Sequence")
-                    Dim pParaName As Object = testrow("Data_Name")
-                    Dim pMeasureUnit As Object = testrow("Measure_Unit")
-                    Dim pTestResult As Object = dr(testcode)
-                    Dim pNormalLevel As Object = testrow("Normal_Level")
-                    Dim pNormalLevelW As Object = testrow("Normal_LevelW")
+                Dim percent As Integer = ProgressBar1.Value
+                ProgressBar1.CreateGraphics().DrawString(percent.ToString() + "%", New Font("Arial", 10, FontStyle.Regular),
+                    Brushes.Black, New PointF(ProgressBar1.Width / 2 - 10, ProgressBar1.Height / 2 - 7))
 
-                    'Kiểm tra nếu kết quả mới là trắng hoặc rỗng thì không insert vào DB
-                    If String.IsNullOrEmpty(pTestResult.ToString()) Then Continue For
-                    'Nếu barcode này đã có kết quả thì bỏ qua trong trường hợp check vào tùy chọn
-                    If pParaName.ToString().StartsWith("Đường máu") Then Debug.WriteLine("Đường Máu")
-                    If cboKeepOldResult.Checked Then
-                        Dim pDetailId = Utilities.GetFieldValue("T_RESULT_DETAIL", "TestDetail_ID", "Barcode='" & outbarcode & "' AND Para_Name = N'" & pParaName & "'")
-                        If Not String.IsNullOrEmpty(Utility.sDbnull(pDetailId)) Then Continue For
-                    End If
-                    spInsertUpdateResult(pTestId, patientId, testType, "", pTestDate, pDataSeq, outbarcode, pParaName, pTestResult, pMeasureUnit, pNormalLevel, pNormalLevelW)
-                Next i
-                _tblResultDisplay.Rows(drcount)("Status") = "Đã cập nhật"
-                ToolStripProgressBar1.Value = drcount
-            Next drcount
+                ProgressBar1.PerformStep()
+            Next i
+
+                _tblPatientList1.AcceptChanges()
+                grdDataImported.DataSource = _tblPatientList1
             lbStatus.Text = "Đã cập nhật xong!"
+            ProgressBar1.Visible = False
             MessageBox.Show("Bạn đã cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
         Catch ex As Exception
         Finally
             methodConnection.Dispose()

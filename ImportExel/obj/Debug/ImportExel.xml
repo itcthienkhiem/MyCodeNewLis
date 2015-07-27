@@ -6,7 +6,80 @@ ImportExel
 </name>
 </assembly>
 <members>
-<member name="P:ImportExel.My.Resources.Resources.ResourceManager">
+<member name="M:ImportExel.FrmImportFromExcel.LoadObjType(System.Data.DataTable,System.Windows.Forms.ComboBox)">
+	<summary>
+ Load lại đối tượng vào combobox
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.GetLot">
+	<summary>
+ Hàm lấy về mã lô từ CSDL
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.GetSex(System.String)">
+	<summary>
+ Kiểm tra xem trường nhập vào
+ </summary>
+	<param name="sex">string</param>
+	<returns>string</returns>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.GetWorksheet(System.String,System.String)">
+	<summary>
+ Lấy thông tin của từng sheet
+ </summary>
+	<param name="worksheetName">tên của sheet</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.InsertLOTID(System.Int32,System.Int32,System.DateTime,System.String,System.String,System.String)">
+	<summary>
+ Hàm đăng ký thêm lô bệnh nhân
+ </summary>
+	<param name="orderform">Nhập bất kỳ kiểu Integer</param>
+	<param name="orderto">Nhập bất kỳ kiểu Integer</param>
+	<param name="dateinput">Ngày hiện lại</param>
+	<param name="Obj">Đối tượng</param>
+	<param name="sex">Giới tính, string</param>
+	<param name="addr">Địa chỉ</param>
+	<returns>none</returns>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.GetMaxBarcode(System.DateTime)">
+	<summary>
+ Hàm Lấy mã barcode lớn nhất
+ </summary>
+	<param name="testDate">Ngày</param>
+	<returns>Số nguyên</returns>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.GetMaxPatientId(System.String)">
+	<summary>
+ Hàm lấy Patient_ID lớn nhất
+ </summary>
+	<param name="pid">pid</param>
+	<returns>trả về 1 nếu ko tìm thấy, trả về Patient_ID nếu tìm thấy </returns>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.GetMaxLOTID">
+	<summary>
+ Hàm lấy mã lô lớn nhất
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.GetIntOrder(System.String)">
+	<summary>
+ Hàm lấy IntOder
+ </summary>
+	<param name="testtypeId">testtypeId</param>
+	<returns>Số nguyên</returns>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.LoadTestType">
+	<summary>
+ Hàm lấy về loại xét nghiệm, đổ vào grdTestType
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ImportExel.FrmImportFromExcel.ProcessMapping">
+	<summary>
+ Hàm điều khiển sự kiện bỏ dấu và viết hoa
+ </summary>
+	<remarks></remarks>
+</member><member name="P:ImportExel.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
@@ -102,13 +175,6 @@ ImportExel
 	<param name="fromDate">From date.</param>
 	<param name="toDate">To date.</param>
 	<returns></returns>
-</member><member name="M:ImportExel.ModBusinessHelper.GetTestIdFromBarcodeAndTestTypeId(System.String,System.String)">
-	<summary>
- Hàm trả về TestID 
- </summary>
-	<param name="barcode">The barcode.</param>
-	<param name="testtypeId">The testtype id.</param>
-	<returns></returns>
 </member><member name="M:ImportExel.ModBusinessHelper.GetAllDepartment">
 	<summary>
  Lấy về danh sách phòng ban
@@ -167,79 +233,6 @@ ImportExel
  </summary>
 	<param name="pTestTypeId">The p test type id.</param>
 	<returns></returns>
-</member><member name="M:ImportExel.FrmImportFromExcel.LoadObjType(System.Data.DataTable,System.Windows.Forms.ComboBox)">
-	<summary>
- Load lại đối tượng vào combobox
- </summary>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.GetLot">
-	<summary>
- Hàm lấy về mã lô từ CSDL
- </summary>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.GetSex(System.String)">
-	<summary>
- Kiểm tra xem trường nhập vào
- </summary>
-	<param name="sex">string</param>
-	<returns>string</returns>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.GetWorksheet(System.String,System.String)">
-	<summary>
- Lấy thông tin của từng sheet
- </summary>
-	<param name="worksheetName">tên của sheet</param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.InsertLOTID(System.Int32,System.Int32,System.DateTime,System.String,System.String,System.String)">
-	<summary>
- Hàm đăng ký thêm lô bệnh nhân
- </summary>
-	<param name="orderform">Nhập bất kỳ kiểu Integer</param>
-	<param name="orderto">Nhập bất kỳ kiểu Integer</param>
-	<param name="dateinput">Ngày hiện lại</param>
-	<param name="Obj">Đối tượng</param>
-	<param name="sex">Giới tính, string</param>
-	<param name="addr">Địa chỉ</param>
-	<returns>none</returns>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.GetMaxBarcode(System.DateTime)">
-	<summary>
- Hàm Lấy mã barcode lớn nhất
- </summary>
-	<param name="testDate">Ngày</param>
-	<returns>Số nguyên</returns>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.GetMaxPatientId(System.String)">
-	<summary>
- Hàm lấy Patient_ID lớn nhất
- </summary>
-	<param name="pid">pid</param>
-	<returns>trả về 1 nếu ko tìm thấy, trả về Patient_ID nếu tìm thấy </returns>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.GetMaxLOTID">
-	<summary>
- Hàm lấy mã lô lớn nhất
- </summary>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.GetIntOrder(System.String)">
-	<summary>
- Hàm lấy IntOder
- </summary>
-	<param name="testtypeId">testtypeId</param>
-	<returns>Số nguyên</returns>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.LoadTestType">
-	<summary>
- Hàm lấy về loại xét nghiệm, đổ vào grdTestType
- </summary>
-	<remarks></remarks>
-</member><member name="M:ImportExel.FrmImportFromExcel.ProcessMapping">
-	<summary>
- Hàm điều khiển sự kiện bỏ dấu và viết hoa
- </summary>
-	<remarks></remarks>
 </member><member name="M:ImportExel.Utilities.WriteDataTableToFile(System.Data.DataTable,System.String,System.Boolean)">
 	<summary>
  Ghi toàn bộ nội dung của datatable ra file text

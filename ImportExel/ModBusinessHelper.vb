@@ -495,6 +495,14 @@ Module ModBusinessHelper
     Public Function GetTestTypeandTReglistForPatient(ByVal patientId As Integer, ByVal fromDate As DateTime, ByVal toDate As DateTime) As DataTable
         Return SPs.SpGetTestTypeandTReglist(patientId, fromDate, toDate).GetDataSet().Tables(0)
     End Function
+    Public Function GetpatientId(ByVal barcode As String) As Integer
+        Dim PatientId = New [Select](TTestInfo.Columns.PatientId).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.Barcode).IsEqualTo(barcode.Trim()).ExecuteScalar()
+        Try
+            Return Convert.ToInt64(PatientId)
+        Catch ex As Exception
+            Return -1
+        End Try
+    End Function
 
     ''' <summary>
     ''' Hàm trả về TestID 
@@ -502,15 +510,22 @@ Module ModBusinessHelper
     ''' <param name="barcode">The barcode.</param>
     ''' <param name="testtypeId">The testtype id.</param>
     ''' <returns></returns>
-    Public Function GetTestIdFromBarcodeAndTestTypeId(ByVal barcode As String, ByVal testtypeId As String) As Integer
-        Dim testId = New [Select](TTestInfo.Columns.TestId).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.Barcode).IsEqualTo(barcode).And(TTestInfo.Columns.TestTypeId).IsEqualTo(testtypeId).ExecuteScalar()
+    Public Function GetTestIdFromBarcodeAndTestTypeId(ByVal patientId As String, ByVal testtypeId As String) As Integer
+        Dim testId = New [Select](TTestInfo.Columns.TestId).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.PatientId).IsEqualTo(patientId).And(TTestInfo.Columns.TestTypeId).IsEqualTo(testtypeId).ExecuteScalar()
         Try
             Return Convert.ToInt32(testId)
         Catch ex As Exception
             Return -1
         End Try
     End Function
-
+    'Public Function GetBarcodeFromPatientId(ByVal patientId As String) As String
+    '    Dim barcode = New [Select](TTestInfo.Columns.Barcode).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.PatientId).IsEqualTo(patientId).ExecuteScalar()
+    '    Try
+    '        Return (barcode).ToString()
+    '    Catch ex As Exception
+    '        Return -1
+    '    End Try
+    'End Function
     Public Function GetTestIdFromPatientIdAndTestTypeId(ByVal patientId As String, ByVal testtypeId As String) As Integer
         Dim testId = New [Select](TTestInfo.Columns.TestId).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.PatientId).IsEqualTo(patientId).And(TTestInfo.Columns.TestTypeId).IsEqualTo(testtypeId).ExecuteScalar()
         Try
@@ -674,8 +689,22 @@ Module ModBusinessHelper
 
     Public Function GetPatientIdFromBarcode(ByVal pBarcode As String)
         Try
-            Dim result = New SubSonic.Select(TTestInfo.Columns.PatientId).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.Barcode).IsEqualTo(pBarcode).ExecuteScalar()
-            Return result.ToString()
+            If (pBarcode.Length <= 5) Then
+                Dim result = New SubSonic.Select(TTestInfo.Columns.PatientId, TTestInfo.Columns.Barcode).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.Barcode).Like("%" + pBarcode + "%").ExecuteScalar()
+                If (result IsNot Nothing) Then
+                    Return result.ToString()
+                Else
+                    Return "-1"
+                End If
+            Else
+                Dim result = New SubSonic.Select(TTestInfo.Columns.PatientId).From(TTestInfo.Schema.Name).Where(TTestInfo.Columns.Barcode).IsEqualTo(pBarcode).ExecuteScalar()
+                If (result IsNot Nothing) Then
+                    Return result.ToString()
+                Else
+                    Return "-1"
+                End If
+            End If
+
         Catch ex As Exception
             Return String.Empty
         End Try
@@ -684,7 +713,7 @@ Module ModBusinessHelper
     Public Function GetTestTypeIdFromDescription(ByVal desc As String) As Int32
         Try
             Dim result As Integer
-            result = New [Select](LStandardTest.Columns.TestTypeId).From(LStandardTest.Schema.Name).Where(LStandardTest.Columns.Description).IsEqualTo(desc).ExecuteScalar()
+            result = New [Select](LStandardTest.Columns.TestTypeId).From(LStandardTest.Schema.Name).Where(LStandardTest.Columns.TestDataId).IsEqualTo(desc).ExecuteScalar()
             Return result
         Catch ex As Exception
             Return -1
@@ -738,7 +767,7 @@ Module ModBusinessHelper
     Public Function GetTestTypeIdFromTestCode(ByVal pTestCode As String) As Integer
         Try
             Dim result As Integer
-            result = New [Select](LStandardTest.Columns.TestTypeId).From(LStandardTest.Schema.Name).Where(LStandardTest.Columns.Description).IsEqualTo(pTestCode).ExecuteScalar()
+            result = New [Select](LStandardTest.Columns.TestTypeId).From(LStandardTest.Schema.Name).Where(LStandardTest.Columns.TestDataId).IsEqualTo(pTestCode).ExecuteScalar()
             Return result
         Catch ex As Exception
             Return -1

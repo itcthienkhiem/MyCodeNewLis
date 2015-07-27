@@ -28,3 +28,13 @@ C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.vbpr
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.dll
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.xml
 C:\Users\hadk\Documents\GitHub\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.pdb
+E:\Project\MyCodeNewLis\Running\ImportExel.dll
+E:\Project\MyCodeNewLis\Running\ImportExel.pdb
+E:\Project\MyCodeNewLis\Running\ImportExel.xml
+E:\Project\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.vbprojResolveAssemblyReference.cache
+E:\Project\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.FrmImportFromExcel.resources
+E:\Project\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.Resources.resources
+E:\Project\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.vbproj.GenerateResource.Cache
+E:\Project\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.dll
+E:\Project\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.xml
+E:\Project\MyCodeNewLis\ImportExel\obj\Debug\ImportExel.pdb

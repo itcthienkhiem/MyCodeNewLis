@@ -188,8 +188,6 @@ Partial Class FrmImportFromExcel
         'cboKeepOldResult
         '
         Me.cboKeepOldResult.AutoSize = True
-        Me.cboKeepOldResult.Checked = True
-        Me.cboKeepOldResult.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cboKeepOldResult.Location = New System.Drawing.Point(7, 21)
         Me.cboKeepOldResult.Name = "cboKeepOldResult"
         Me.cboKeepOldResult.Size = New System.Drawing.Size(213, 17)
@@ -257,9 +255,9 @@ Partial Class FrmImportFromExcel
         '
         Me.cmdOpen.Image = CType(resources.GetObject("cmdOpen.Image"), System.Drawing.Image)
         Me.cmdOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdOpen.Location = New System.Drawing.Point(6, 11)
+        Me.cmdOpen.Location = New System.Drawing.Point(6, 13)
         Me.cmdOpen.Name = "cmdOpen"
-        Me.cmdOpen.Size = New System.Drawing.Size(80, 23)
+        Me.cmdOpen.Size = New System.Drawing.Size(80, 21)
         Me.cmdOpen.TabIndex = 11
         Me.cmdOpen.Text = "Mở file"
         Me.cmdOpen.UseVisualStyleBackColor = True
@@ -267,11 +265,15 @@ Partial Class FrmImportFromExcel
         'cmdUpdateToDB
         '
         Me.cmdUpdateToDB.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdUpdateToDB.Location = New System.Drawing.Point(878, 555)
+        Me.cmdUpdateToDB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdUpdateToDB.Image = CType(resources.GetObject("cmdUpdateToDB.Image"), System.Drawing.Image)
+        Me.cmdUpdateToDB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdUpdateToDB.Location = New System.Drawing.Point(844, 550)
         Me.cmdUpdateToDB.Name = "cmdUpdateToDB"
-        Me.cmdUpdateToDB.Size = New System.Drawing.Size(110, 23)
+        Me.cmdUpdateToDB.Size = New System.Drawing.Size(143, 34)
         Me.cmdUpdateToDB.TabIndex = 9
         Me.cmdUpdateToDB.Text = "Cập nhật kết quả"
+        Me.cmdUpdateToDB.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdUpdateToDB.UseVisualStyleBackColor = True
         '
         'grdDataImported
@@ -289,11 +291,15 @@ Partial Class FrmImportFromExcel
         'cmdImport
         '
         Me.cmdImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdImport.Location = New System.Drawing.Point(725, 555)
+        Me.cmdImport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdImport.Image = CType(resources.GetObject("cmdImport.Image"), System.Drawing.Image)
+        Me.cmdImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdImport.Location = New System.Drawing.Point(633, 550)
         Me.cmdImport.Name = "cmdImport"
-        Me.cmdImport.Size = New System.Drawing.Size(147, 23)
+        Me.cmdImport.Size = New System.Drawing.Size(193, 34)
         Me.cmdImport.TabIndex = 6
         Me.cmdImport.Text = "Nhập dữ liệu từ file Excell"
+        Me.cmdImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmdImport.UseVisualStyleBackColor = True
         '
         'TabControl1
@@ -380,7 +386,7 @@ Partial Class FrmImportFromExcel
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.dtpInputDate)
-        Me.GroupBox1.Location = New System.Drawing.Point(531, 547)
+        Me.GroupBox1.Location = New System.Drawing.Point(513, 547)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(148, 38)
         Me.GroupBox1.TabIndex = 32
@@ -408,11 +414,12 @@ Partial Class FrmImportFromExcel
         '
         Me.cmdImportList.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdImportList.Enabled = False
+        Me.cmdImportList.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdImportList.Image = CType(resources.GetObject("cmdImportList.Image"), System.Drawing.Image)
         Me.cmdImportList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdImportList.Location = New System.Drawing.Point(701, 551)
+        Me.cmdImportList.Location = New System.Drawing.Point(661, 551)
         Me.cmdImportList.Name = "cmdImportList"
-        Me.cmdImportList.Size = New System.Drawing.Size(149, 30)
+        Me.cmdImportList.Size = New System.Drawing.Size(171, 30)
         Me.cmdImportList.TabIndex = 30
         Me.cmdImportList.Text = "Nạp dữ liệu từ file Excel"
         Me.cmdImportList.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -698,11 +705,12 @@ Partial Class FrmImportFromExcel
         'btnInsert
         '
         Me.btnInsert.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnInsert.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnInsert.Image = CType(resources.GetObject("btnInsert.Image"), System.Drawing.Image)
         Me.btnInsert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnInsert.Location = New System.Drawing.Point(856, 551)
+        Me.btnInsert.Location = New System.Drawing.Point(838, 551)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(121, 30)
+        Me.btnInsert.Size = New System.Drawing.Size(150, 30)
         Me.btnInsert.TabIndex = 27
         Me.btnInsert.Text = "Cập nhật dữ liệu"
         Me.btnInsert.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -778,7 +786,7 @@ Partial Class FrmImportFromExcel
         Me.btnOpen.Image = CType(resources.GetObject("btnOpen.Image"), System.Drawing.Image)
         Me.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnOpen.Name = "btnOpen"
-        Me.btnOpen.Size = New System.Drawing.Size(62, 22)
+        Me.btnOpen.Size = New System.Drawing.Size(64, 22)
         Me.btnOpen.Text = "Mở file"
         '
         'ToolStripSeparator1
@@ -789,7 +797,7 @@ Partial Class FrmImportFromExcel
         'lbSheet
         '
         Me.lbSheet.Name = "lbSheet"
-        Me.lbSheet.Size = New System.Drawing.Size(44, 22)
+        Me.lbSheet.Size = New System.Drawing.Size(39, 22)
         Me.lbSheet.Text = "Sheet:"
         '
         'sheetsToolStripComboBox
@@ -807,7 +815,7 @@ Partial Class FrmImportFromExcel
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(90, 22)
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(87, 22)
         Me.ToolStripLabel1.Text = "Loại đối tượng:"
         '
         'TabPage3

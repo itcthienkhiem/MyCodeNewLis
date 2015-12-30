@@ -283,6 +283,7 @@ namespace VietBaIT.LABLink.Reports.Forms
               if (sd.ShowDialog() == DialogResult.OK)
               {
                   sw = new FileStream(sd.FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                  //GrdListExporter.SheetName = "DanhSachBenhNhan";
                   GrdListExporter.Export(sw);
                   MessageBox.Show("Xuất dữ liệu thành công", "Thông Báo", MessageBoxButtons.OK);
               }

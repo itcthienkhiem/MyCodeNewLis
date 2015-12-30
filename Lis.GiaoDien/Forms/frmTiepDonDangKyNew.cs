@@ -20,6 +20,8 @@ using ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlign
 using ImageVerticalAlignment = Janus.Windows.EditControls.ImageVerticalAlignment;
 using TextAlignment = Janus.Windows.EditControls.TextAlignment;
 using TriState = Janus.Windows.UI.TriState;
+using System.Drawing.Printing;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Vietbait.Lablink.TestInformation.UI.Forms
 {
@@ -1438,6 +1440,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                     dr["Department_Name"] = (Utility.Int32Dbnull(cboDepartment.SelectedValue) < 1 ? "" : cboDepartment.Text);
                     int departmentId = Utility.Int32Dbnull(cboDepartment.SelectedValue, -1);
                     dr["DepartmentID"] = departmentId;
+                    dr["NoiDungKham"] = txtChiDinhKham.Text;
                     dr["Room"] = txtRoom.Text.Trim();
                     dr["Bed"] = txtBed.Text.Trim();
                     dr["DateUpdate"] = dtmDate.Text;
@@ -1561,6 +1564,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                 obj.DepartmentName = txtDepartment.Text;
                 obj.Room = txtRoom.Text;
                 obj.Bed = txtBed.Text;
+                obj.NoiDungKham = txtChiDinhKham.Text; 
                 obj.Dateupdate = dtmDate.Value;
                 obj.ObjectType = Convert.ToInt32(cboObject.SelectedValue);
                 obj.UserId = Utility.sDbnull(globalVariables.UserName);
@@ -1594,7 +1598,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                     Set(LPatientInfo.Columns.Room).EqualTo(txtRoom.Text).
                     Set(LPatientInfo.Columns.Bed).EqualTo(txtBed.Text).
                     Set(LPatientInfo.Columns.IdentifyNum).EqualTo(txtCMT.Text).
-                    //Set(LPatientInfo.Columns.LotID).EqualTo(Convert.ToInt32(cboLot.SelectedValue)).
+                    Set(LPatientInfo.Columns.NoiDungKham).EqualTo(txtChiDinhKham.Text).
                     //Set(LPatientInfo.Columns.HosStatus).EqualTo(Utility.Int32Dbnull(cboHosStatus.SelectedIndex)).
                     Set(LPatientInfo.Columns.Dob).EqualTo(chkDOB.Checked
                                                               ? (chkDOB.Checked ? dtpDOB.Value.Date : SqlDateTime.Null)
@@ -1675,6 +1679,7 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
                 dr["NgheNghiep"] = txtNgheNghiep.Text.Trim();
                 dr["ChucVu"] = txtChucVu.Text.Trim();
                 dr["DateUpdate"] = dtmDate.Text;
+                dr["NoiDungKham"] = txtChiDinhKham.Text;
              //   dr["LotID"] = Utility.Int32Dbnull(cboLot.SelectedValue, -1);
                 dr["CanLamSang_ID"] = txtCanLamSangID.Text;
                 dr["User_ID"] = Utility.sDbnull(globalVariables.UserName);
@@ -1861,10 +1866,98 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
         {
             txtYearOfBirth.Value = dtpDOB.Value.Year;
         }
-
+        public PrintDocument printDocument = new PrintDocument();
+        private DataTable DTPrint = null;
+        private void INPHIEU_XETNGHIEM(bool IsQuick, DateTime NgayIn)
+        {
+            new Update(LPatientInfo.Schema.Name).Set(LPatientInfo.Columns.NgayKham)
+                .EqualTo(DateTime.Now)
+                .Where(LPatientInfo.Columns.Pid)
+                .IsEqualTo(Utility.sDbnull(txtPID.Text))
+                .Execute();
+            DTPrint =
+                    SPs.SpInPhieuDangKyKham(Utility.sDbnull(txtPID.Text.Trim())).GetDataSet().Tables[0];
+            if (DTPrint.Rows.Count <= 0)
+            {
+                Utility.ShowMsg("Không tìm thấy bản ghi nào", "Thông báo");
+                return;
+            }
+          //  Utility.AddColumToDataTable(ref DTPrint,"AnhDonVi",);
+                 Utility.AddColumToDataTable(ref DTPrint, "AnhDonVi", typeof(byte[]));
+                 Utility.AddColumToDataTable(ref DTPrint, "PIDImages", typeof(byte[]));
+                string path = "";
+                if (System.IO.File.Exists(@"logo\donvi.bmp")) path = @"logo\donvi.bmp";
+                if (System.IO.File.Exists(@"logo\donvi.jpg")) path = @"logo\donvi.jpg";
+                if (System.IO.File.Exists(@"logo\donvi.png")) path = @"logo\donvi.png";
+                byte[] logoBytes = new byte[] { };
+                if (path != "") logoBytes = Utility.bytGetImage(path);
+            foreach (DataRow dr in DTPrint.Rows)
+            {
+                dr["AnhDonVi"] = logoBytes;
+                dr["PIDImages"] = Utility.GenerateBarCode(
+                            BarcodeInfo.CreateNewBarcode(Utility.sDbnull(Utility.sDbnull(dr["PID"]), "0000000000")));
+            }
+            string tieude = "", reportname = "";
+            var crpt = new ReportDocument();
+            string titleInPhieuKQ = "";
+            crpt = Utility.GetReport("HOSOKSK", ref tieude, ref reportname);
+            if (crpt.FilePath != null && crpt.FilePath != "")
+            {
+                var objForm = new frmPrintPreview(tieude, crpt, true, DTPrint.Rows.Count <= 0 ? false : true);
+                Utility.UpdateLogotoDatatable(ref DTPrint);
+                try
+                {
+                    DTPrint.AcceptChanges();
+                    crpt.SetDataSource(DTPrint);
+                    objForm.crptViewer.ReportSource = crpt;
+                   ////crpt.DataDefinition.FormulaFields["Formula_1"].Text = Strings.Chr(34) + "  PHÒNG TIẾP ĐÓN   ".Replace("#$X$#", Strings.Chr(34) + "&Chr(13)&" + Strings.Chr(34)) + Strings.Chr(34);
+                    objForm.crptTrinhKyName = Path.GetFileName(reportname);
+                   Utility.SetParameterValue(crpt, "sCurrentDate", Date(NgayIn));
+                    Utility.SetParameterValue(crpt, "sTitleReport", tieude);
+                    Utility.SetParameterValue(crpt, "BottomCondition", THU_VIEN_CHUNG.BottomCondition());
+                    if (IsQuick)
+                    {
+                        objForm.ShowDialog();
+                        // Utility.DefaultNow(this);
+                    }
+                    else
+                    {
+                        objForm.addTrinhKy_OnFormLoad();
+                        crpt.PrintOptions.PrinterName = printDocument.PrinterSettings.PrinterName;
+                        crpt.PrintToPrinter(0, true, 0, 0);
+                        crpt.Dispose();
+                        Utility.CleanTemporaryFolders();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (globalVariables.IsAdmin)
+                    {
+                        Utility.ShowMsg(ex.ToString());
+                    }
+                }
+            }
+            else
+            {
+                Utility.ShowMsg("Ban hay chon loai mau bao cao", "Thong bao");
+            }
+        }
+        static string Date(DateTime ngayin)
+        {
+            string strdate = string.Format("Ngày {0} tháng {1} năm {2} ", Utility.Int16Dbnull(ngayin.Day), Utility.Int16Dbnull(ngayin.Month), Utility.sDbnull(ngayin.Year));
+            return strdate;
+        }
         private void cmd_InPhieu_ChiDinh_Click(object sender, EventArgs e)
         {
+            try
+            {
+                INPHIEU_XETNGHIEM(false, DateTime.Now);
+            }
+            catch (Exception)
+            {
 
+
+            }
         }
 
         private void cmdEscape_Click(object sender, EventArgs e)

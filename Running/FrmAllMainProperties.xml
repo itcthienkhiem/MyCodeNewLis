@@ -7,7 +7,7 @@
   <TieuDeInPhieuChiDinh>Phiếu in chỉ định xét nghiệm</TieuDeInPhieuChiDinh>
   <TieuDeInPhieuKq>Phiếu kết quả</TieuDeInPhieuKq>
   <TabCapNhapKetQua>true</TabCapNhapKetQua>
-  <TabXulyDL>true</TabXulyDL>
+  <TabXulyDL>false</TabXulyDL>
   <ResultDateColumn>true</ResultDateColumn>
   <ChieuRong>110</ChieuRong>
   <ChieuCao>35</ChieuCao>

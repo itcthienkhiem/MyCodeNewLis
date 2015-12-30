@@ -4,9 +4,9 @@
   <MaKhoa>KKB</MaKhoa>
   <Maphong>101</Maphong>
   <Somayle>12345678</Somayle>
-  <DataBaseServer>hadk</DataBaseServer>
-  <DataBaseName>labtest</DataBaseName>
+  <DataBaseServer>.\sqlexpress</DataBaseServer>
+  <DataBaseName>xetnghiem</DataBaseName>
   <UID>sa</UID>
-  <PWD>12345678</PWD>
+  <PWD>123456</PWD>
   <ORM>ORM</ORM>
 </ConfigProperties>

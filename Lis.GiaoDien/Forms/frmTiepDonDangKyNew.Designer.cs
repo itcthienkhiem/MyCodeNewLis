@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTiepDonDangKyNew));
             Janus.Windows.GridEX.GridEXLayout grdTestInfo_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel1 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel2 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
-            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel3 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel7 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel8 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
+            Janus.Windows.UI.StatusBar.UIStatusBarPanel uiStatusBarPanel9 = new Janus.Windows.UI.StatusBar.UIStatusBarPanel();
             this.uiGroupBox3 = new Janus.Windows.EditControls.UIGroupBox();
             this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
@@ -42,6 +42,8 @@
             this.cmd_InPhieu_ChiDinh = new System.Windows.Forms.ToolStripButton();
             this.cmdEscape = new System.Windows.Forms.ToolStripButton();
             this.uiGroupBox6 = new Janus.Windows.EditControls.UIGroupBox();
+            this.txtChiDinhKham = new Janus.Windows.GridEX.EditControls.EditBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtDepartment = new Lis.GiaoDien.BetterTextbox();
             this.txtChucVu = new Lis.GiaoDien.BetterTextbox();
             this.txtNgheNghiep = new Lis.GiaoDien.BetterTextbox();
@@ -151,7 +153,7 @@
             this.cmdEscape});
             this.ToolStrip1.Location = new System.Drawing.Point(3, 8);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(1002, 31);
+            this.ToolStrip1.Size = new System.Drawing.Size(1002, 39);
             this.ToolStrip1.TabIndex = 25;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
@@ -162,7 +164,7 @@
             this.btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(172, 28);
+            this.btnSave.Size = new System.Drawing.Size(172, 36);
             this.btnSave.Tag = "";
             this.btnSave.Text = "Lưu thông tin (Ctrl+S)";
             this.btnSave.ToolTipText = "Lưu thông tin (Ctrl+S)";
@@ -205,9 +207,8 @@
             this.cmd_InPhieu_ChiDinh.Name = "cmd_InPhieu_ChiDinh";
             this.cmd_InPhieu_ChiDinh.Size = new System.Drawing.Size(162, 36);
             this.cmd_InPhieu_ChiDinh.Tag = "";
-            this.cmd_InPhieu_ChiDinh.Text = "In Phiếu Chỉ Định (F4)";
+            this.cmd_InPhieu_ChiDinh.Text = "In Phiếu Đăng Ký (F4)";
             this.cmd_InPhieu_ChiDinh.ToolTipText = "In Phiếu Chỉ Định (F4)";
-            this.cmd_InPhieu_ChiDinh.Visible = false;
             this.cmd_InPhieu_ChiDinh.Click += new System.EventHandler(this.cmd_InPhieu_ChiDinh_Click);
             // 
             // cmdEscape
@@ -217,7 +218,7 @@
             this.cmdEscape.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cmdEscape.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cmdEscape.Name = "cmdEscape";
-            this.cmdEscape.Size = new System.Drawing.Size(105, 28);
+            this.cmdEscape.Size = new System.Drawing.Size(105, 36);
             this.cmdEscape.Tag = "";
             this.cmdEscape.Text = "Thoát (Esc)";
             this.cmdEscape.ToolTipText = "Thoát (Esc)";
@@ -225,6 +226,8 @@
             // 
             // uiGroupBox6
             // 
+            this.uiGroupBox6.Controls.Add(this.txtChiDinhKham);
+            this.uiGroupBox6.Controls.Add(this.label15);
             this.uiGroupBox6.Controls.Add(this.txtDepartment);
             this.uiGroupBox6.Controls.Add(this.txtChucVu);
             this.uiGroupBox6.Controls.Add(this.txtNgheNghiep);
@@ -271,11 +274,32 @@
             this.uiGroupBox6.Controls.Add(this.Label12);
             this.uiGroupBox6.Controls.Add(this.txtPID);
             this.uiGroupBox6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiGroupBox6.Location = new System.Drawing.Point(3, 45);
+            this.uiGroupBox6.Location = new System.Drawing.Point(3, 42);
             this.uiGroupBox6.Name = "uiGroupBox6";
-            this.uiGroupBox6.Size = new System.Drawing.Size(1002, 278);
+            this.uiGroupBox6.Size = new System.Drawing.Size(1002, 281);
             this.uiGroupBox6.TabIndex = 0;
             this.uiGroupBox6.Text = "Thông tin bệnh nhân";
+            // 
+            // txtChiDinhKham
+            // 
+            this.txtChiDinhKham.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtChiDinhKham.Location = new System.Drawing.Point(120, 243);
+            this.txtChiDinhKham.Name = "txtChiDinhKham";
+            this.txtChiDinhKham.Size = new System.Drawing.Size(264, 22);
+            this.txtChiDinhKham.TabIndex = 191;
+            this.txtChiDinhKham.Tag = "Chẩn đoán";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(390, 246);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(52, 16);
+            this.label15.TabIndex = 190;
+            this.label15.Text = "Địa chỉ";
             // 
             // txtDepartment
             // 
@@ -330,9 +354,9 @@
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAddress.Location = new System.Drawing.Point(122, 242);
+            this.txtAddress.Location = new System.Drawing.Point(448, 242);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(646, 22);
+            this.txtAddress.Size = new System.Drawing.Size(320, 22);
             this.txtAddress.TabIndex = 184;
             this.txtAddress.Tag = "Địa chỉ";
             // 
@@ -342,11 +366,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(539, 107);
+            this.label14.Location = new System.Drawing.Point(574, 106);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(87, 16);
+            this.label14.Size = new System.Drawing.Size(47, 16);
             this.label14.TabIndex = 183;
-            this.label14.Text = "Phân xưởng";
+            this.label14.Text = "Group";
             // 
             // label11
             // 
@@ -365,7 +389,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtDiagnostic.Location = new System.Drawing.Point(122, 215);
             this.txtDiagnostic.Name = "txtDiagnostic";
-            this.txtDiagnostic.Size = new System.Drawing.Size(646, 22);
+            this.txtDiagnostic.Size = new System.Drawing.Size(412, 22);
             this.txtDiagnostic.TabIndex = 179;
             this.txtDiagnostic.Tag = "Chẩn đoán";
             // 
@@ -418,11 +442,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(536, 80);
+            this.label5.Location = new System.Drawing.Point(574, 80);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 16);
+            this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 174;
-            this.label5.Text = "Nghề nghiệp";
+            this.label5.Text = "Pass";
             // 
             // txtRoom
             // 
@@ -507,7 +531,7 @@
             this.Label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(13, 245);
+            this.Label6.Location = new System.Drawing.Point(17, 246);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(100, 16);
             this.Label6.TabIndex = 166;
@@ -562,7 +586,7 @@
             this.lblBHYT.AutoSize = true;
             this.lblBHYT.Location = new System.Drawing.Point(43, 105);
             this.lblBHYT.Name = "lblBHYT";
-            this.lblBHYT.Size = new System.Drawing.Size(72, 16);
+            this.lblBHYT.Size = new System.Drawing.Size(71, 16);
             this.lblBHYT.TabIndex = 160;
             this.lblBHYT.Text = "Tuổi nghề";
             // 
@@ -668,7 +692,7 @@
             this.Label17.ForeColor = System.Drawing.Color.Red;
             this.Label17.Location = new System.Drawing.Point(424, 80);
             this.Label17.Name = "Label17";
-            this.Label17.Size = new System.Drawing.Size(36, 16);
+            this.Label17.Size = new System.Drawing.Size(35, 16);
             this.Label17.TabIndex = 154;
             this.Label17.Text = "Tuổi";
             // 
@@ -733,7 +757,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.chkDOB.Location = new System.Drawing.Point(32, 76);
             this.chkDOB.Name = "chkDOB";
-            this.chkDOB.Size = new System.Drawing.Size(85, 21);
+            this.chkDOB.Size = new System.Drawing.Size(85, 24);
             this.chkDOB.TabIndex = 150;
             this.chkDOB.TabStop = false;
             this.chkDOB.Tag = "Ngày Sinh";
@@ -952,28 +976,28 @@
             // 
             this.statusBar.Location = new System.Drawing.Point(0, 653);
             this.statusBar.Name = "statusBar";
-            uiStatusBarPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel1.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel1.Key = "";
-            uiStatusBarPanel1.ProgressBarValue = 0;
-            uiStatusBarPanel1.Text = "Ctrl+A: Chọn Tất Cả Chi Tiết";
-            uiStatusBarPanel1.Width = 194;
-            uiStatusBarPanel2.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel2.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel2.Key = "";
-            uiStatusBarPanel2.ProgressBarValue = 0;
-            uiStatusBarPanel2.Text = "Ctrl+U: Hủy Tất Cả Chi Tiết";
-            uiStatusBarPanel2.Width = 185;
-            uiStatusBarPanel3.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-            uiStatusBarPanel3.BorderColor = System.Drawing.Color.Empty;
-            uiStatusBarPanel3.Key = "";
-            uiStatusBarPanel3.ProgressBarValue = 0;
-            uiStatusBarPanel3.Text = "Esc: Thoát";
-            uiStatusBarPanel3.Width = 81;
+            uiStatusBarPanel7.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel7.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel7.Key = "";
+            uiStatusBarPanel7.ProgressBarValue = 0;
+            uiStatusBarPanel7.Text = "Ctrl+A: Chọn Tất Cả Chi Tiết";
+            uiStatusBarPanel7.Width = 194;
+            uiStatusBarPanel8.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel8.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel8.Key = "";
+            uiStatusBarPanel8.ProgressBarValue = 0;
+            uiStatusBarPanel8.Text = "Ctrl+U: Hủy Tất Cả Chi Tiết";
+            uiStatusBarPanel8.Width = 185;
+            uiStatusBarPanel9.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
+            uiStatusBarPanel9.BorderColor = System.Drawing.Color.Empty;
+            uiStatusBarPanel9.Key = "";
+            uiStatusBarPanel9.ProgressBarValue = 0;
+            uiStatusBarPanel9.Text = "Esc: Thoát";
+            uiStatusBarPanel9.Width = 81;
             this.statusBar.Panels.AddRange(new Janus.Windows.UI.StatusBar.UIStatusBarPanel[] {
-            uiStatusBarPanel1,
-            uiStatusBarPanel2,
-            uiStatusBarPanel3});
+            uiStatusBarPanel7,
+            uiStatusBarPanel8,
+            uiStatusBarPanel9});
             this.statusBar.Size = new System.Drawing.Size(1008, 29);
             this.statusBar.TabIndex = 1;
             this.statusBar.VisualStyle = Janus.Windows.UI.VisualStyle.VS2005;
@@ -1149,6 +1173,8 @@
         private System.Windows.Forms.Button btnSaveAssignDoctor;
         private System.Windows.Forms.ComboBox cboAssignDoctor;
         private Lis.GiaoDien.BetterTextbox txtDepartment;
+        internal Janus.Windows.GridEX.EditControls.EditBox txtChiDinhKham;
+        internal System.Windows.Forms.Label label15;
 
 
     }

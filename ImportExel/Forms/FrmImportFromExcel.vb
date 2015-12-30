@@ -327,9 +327,24 @@ Class FrmImportFromExcel
     Private Function InsertPatientInfo(ByVal pid As String, ByVal name As String, ByVal addr As String, _
                                    ByVal sex As Boolean?, ByVal birth As Integer, ByVal DOB As String, _
                                    ByVal testdate As DateTime, ByVal lotid As Integer, ByVal insuranse As String, _
-                                   ByVal Diagnostic As String, ByVal nghenghiep As String, ByVal chucvu As String, ByVal canlamsangid As String) As Int64
+                                   ByVal Diagnostic As String, ByVal nghenghiep As String, ByVal chucvu As String, ByVal canlamsangid As String, ByVal CaKip As String, ByVal khamdinhky As String, ByVal GioKham As String, ByVal CongDoan As String, ByVal NgayVaoCongTy As DateTime) As Int64
 
         Dim Patient_ID As Int64
+        'Dim Ok As Boolean
+        'Try
+        '    Ok = SPs.VskInsertPatientInfo(pid, name, birth, addr, Diagnostic, Utility.Int16Dbnull(cboUnit.SelectedValue), canlamsangid, DOB, chucvu, nghenghiep, Utility.sDbnull(cboUnit.Text),
+        '                            CongDoan, CaKip, GioKham, insuranse, sex).Execute()
+        '    Patient_ID = getExactlyMaxID()
+        '    If IsNumeric(Patient_ID) Then
+        '        Return Patient_ID
+        '    Else
+        '        Return -1
+        '    End If
+
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
+
 
         Try
             Dim count As Int32
@@ -354,6 +369,7 @@ Class FrmImportFromExcel
                     lp.Dob = Nothing
                 End If
                 lp.Sex = sex
+                lp.NgayVaoCongTy = NgayVaoCongTy
                 lp.Diagnostic = Diagnostic
                 lp.DepartmentID = Utility.Int16Dbnull(cboUnit.SelectedValue)
                 lp.ObjectType = Utility.Int16Dbnull(cboObjType.SelectedValue)
@@ -361,6 +377,9 @@ Class FrmImportFromExcel
                 lp.LotID = lotid
                 lp.Dateupdate = testdate
                 lp.ChucVu = chucvu
+                lp.CaKip = CaKip
+                lp.GioKham = GioKham
+                lp.CongDoan = CongDoan
                 lp.NgheNghiep = nghenghiep
                 lp.DepartmentName = Utility.Int16Dbnull(cboUnit.SelectedText)
                 lp.CanLamSangId = Utility.Int16Dbnull(canlamsangid)
@@ -378,7 +397,7 @@ Class FrmImportFromExcel
                 Patient_ID = Utility.Int32Dbnull(PatientInfo.Rows(0)("Patient_ID"))
                 Dim departmentId = Utility.Int16Dbnull(cboUnit.SelectedValue)
                 Dim DepartmentName = Utility.Int16Dbnull(cboUnit.SelectedText)
-                Dim update = New Update(LPatientInfo.Schema.Name).Set(LPatientInfo.Columns.CanLamSangId).EqualTo(Utility.Int16Dbnull(canlamsangid)).Set(LPatientInfo.Columns.Pid).EqualTo(pid).Set(LPatientInfo.Columns.ObjectType).EqualTo(Utility.Int16Dbnull(cboObjType.SelectedValue)).Set(LPatientInfo.Columns.PatientName).EqualTo(name).Set(LPatientInfo.Columns.Address).EqualTo(addr).Set(LPatientInfo.Columns.Sex).EqualTo(sex).Set(LPatientInfo.Columns.YearBirth).EqualTo(birth).Set(LPatientInfo.Columns.Dob).EqualTo(DOB).Set(LPatientInfo.Columns.Diagnostic).EqualTo(Diagnostic).Set(LPatientInfo.Columns.InsuranceNum).EqualTo(insuranse).Set(LPatientInfo.Columns.NgheNghiep).EqualTo(nghenghiep).Set(LPatientInfo.Columns.ChucVu).EqualTo(chucvu).Set(LPatientInfo.Columns.Dateupdate).EqualTo(testdate).Set(LPatientInfo.Columns.DepartmentID).EqualTo(departmentId).Set(LPatientInfo.Columns.DepartmentName).EqualTo(DepartmentName).Where(LPatientInfo.Columns.PatientId).IsEqualTo(Patient_ID).Execute()
+                Dim update = New Update(LPatientInfo.Schema.Name).Set(LPatientInfo.Columns.CanLamSangId).EqualTo(Utility.Int16Dbnull(canlamsangid)).Set(LPatientInfo.Columns.NgayVaoCongTy).EqualTo(Utility.sDbnull(NgayVaoCongTy)).Set(LPatientInfo.Columns.Pid).EqualTo(pid).Set(LPatientInfo.Columns.ObjectType).EqualTo(Utility.Int16Dbnull(cboObjType.SelectedValue)).Set(LPatientInfo.Columns.PatientName).EqualTo(name).Set(LPatientInfo.Columns.Address).EqualTo(addr).Set(LPatientInfo.Columns.Sex).EqualTo(sex).Set(LPatientInfo.Columns.YearBirth).EqualTo(birth).Set(LPatientInfo.Columns.Dob).EqualTo(DOB).Set(LPatientInfo.Columns.Diagnostic).EqualTo(Diagnostic).Set(LPatientInfo.Columns.InsuranceNum).EqualTo(insuranse).Set(LPatientInfo.Columns.NgheNghiep).EqualTo(nghenghiep).Set(LPatientInfo.Columns.ChucVu).EqualTo(chucvu).Set(LPatientInfo.Columns.Dateupdate).EqualTo(testdate).Set(LPatientInfo.Columns.DepartmentID).EqualTo(departmentId).Set(LPatientInfo.Columns.DepartmentName).EqualTo(DepartmentName).Set(LPatientInfo.Columns.CaKip).EqualTo(CaKip).Set(LPatientInfo.Columns.CongDoan).EqualTo(CongDoan).Set(LPatientInfo.Columns.GioKham).EqualTo(GioKham).Where(LPatientInfo.Columns.PatientId).IsEqualTo(Patient_ID).Execute()
 
                 If IsNumeric(Patient_ID) Then
                     Return Patient_ID
@@ -973,11 +992,19 @@ Class FrmImportFromExcel
                     If Not paramTable.Columns.Contains("Diagnostic") Then
                         paramTable.Columns(10).ColumnName = "Diagnostic"
                     End If
-                    If Not paramTable.Columns.Contains("Barcode") Then
-                        paramTable.Columns(11).ColumnName = "Barcode"
+                    If Not paramTable.Columns.Contains("CaKip") Then
+                        paramTable.Columns(11).ColumnName = "CaKip"
                     End If
-                   
-                End If
+                    If Not paramTable.Columns.Contains("CongDoan") Then
+                        paramTable.Columns(12).ColumnName = "CongDoan"
+                    End If
+                    If Not paramTable.Columns.Contains("KhamDinhKy") Then
+                        paramTable.Columns(13).ColumnName = "KhamDinhKy"
+                    End If
+                    If Not paramTable.Columns.Contains("GioKham") Then
+                        paramTable.Columns(14).ColumnName = "GioKham"
+                    End If
+                   End If
 
                 ''Chèn cột PID vào datatable
                 If Not paramTable.Columns.Contains("PID") Then
@@ -1457,13 +1484,27 @@ Class FrmImportFromExcel
                             End If
                             Dim nghenghiep As String = Utility.sDbnull(dr("PhanXuong"))
                             Dim Donvi As String = Utility.sDbnull(dr("DonVi"))
-                            Dim chucvu As String = Utility.sDbnull(dr("BoPhan"))
+                            Dim CaKip As String = Utility.sDbnull(dr("CaKip")).Trim()
+                            Dim CongDoan As String = Utility.sDbnull(dr("CongDoan")).Trim()
+                            Dim KhamDinhKy As String = Utility.sDbnull(dr("KhamDinhKy")).Trim()
+                            Dim GioKham As String = Utility.sDbnull(dr("GioKham")).Trim()
+                            Dim chucvu As String = Utility.sDbnull(dr("BoPhan")).Trim()
+                            Dim Diagnostic As String = Utility.sDbnull(dr("Diagnostic")).Trim()
                             Dim idcanlamsang As String = Utility.sDbnull(dr("STT")).Trim()
-                            Dim TuoiNghe As String = Utility.sDbnull(dr("NgayVaoCongTy"))
+                            Dim TuoiNghe As String = Utility.sDbnull(dr("NgayVaoCongTy")).Trim()
                             'Dim tinhtuoinghe= 
                             Dim TimeSpan As TimeSpan = DateTime.Parse(DateTime.Now) - DateTime.Parse(TuoiNghe)
                             Dim tinhtuoinghe As Integer = Math.Round(TimeSpan.TotalDays) / 30
                             Dim dob As Object = dr("DOB")
+                            Dim Ok As Boolean
+                            Dim Phognban As String = Utility.sDbnull(cboUnit.SelectedText)
+                            Dim iddonvi As Integer = Utility.Int16Dbnull(cboUnit.SelectedValue)
+                            Dim Patient_ID As Int64
+                            '  BarcodeXN = Utility.sDbnull(dr("Barcode"))
+                            ' patientId = GetpatientId(BarcodeXN)
+                            'patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu, idcanlamsang)
+                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, Utility.sDbnull(dr("Diagnostic")), nghenghiep, chucvu, idcanlamsang, CaKip, KhamDinhKy, GioKham, CongDoan, TuoiNghe)
+
                             BarcodeXN = Utility.sDbnull(dr("Barcode"))
                             patientId = GetpatientId(BarcodeXN)
                             ' patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu, idcanlamsang)
@@ -1533,14 +1574,31 @@ Class FrmImportFromExcel
                             End If
                             Dim nghenghiep As String = Utility.sDbnull(dr("PhanXuong"))
                             Dim Donvi As String = Utility.sDbnull(dr("DonVi"))
-                            Dim chucvu As String = Utility.sDbnull(dr("BoPhan"))
+                            Dim CaKip As String = Utility.sDbnull(dr("CaKip")).Trim()
+                            Dim CongDoan As String = Utility.sDbnull(dr("CongDoan")).Trim()
+                            Dim KhamDinhKy As String = Utility.sDbnull(dr("KhamDinhKy")).Trim()
+                            Dim GioKham As String = Utility.sDbnull(dr("GioKham")).Trim()
+                            Dim chucvu As String = Utility.sDbnull(dr("BoPhan")).Trim()
+                            Dim Diagnostic As String = Utility.sDbnull(dr("Diagnostic")).Trim()
                             Dim idcanlamsang As String = Utility.sDbnull(dr("STT")).Trim()
-                            Dim TuoiNghe As String = Utility.sDbnull(dr("NgayVaoCongTy"))
+                            Dim TuoiNghe As String = Utility.sDbnull(dr("NgayVaoCongTy")).Trim()
                             'Dim tinhtuoinghe= 
                             Dim TimeSpan As TimeSpan = DateTime.Parse(DateTime.Now) - DateTime.Parse(TuoiNghe)
                             Dim tinhtuoinghe As Integer = Math.Round(TimeSpan.TotalDays) / 30
                             Dim dob As Object = dr("DOB")
-                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, dr("Diagnostic"), nghenghiep, chucvu, idcanlamsang)
+                            Dim Ok As Boolean
+                            Dim Phognban As String = Utility.sDbnull(cboUnit.SelectedText)
+                            Dim iddonvi As Integer = Utility.Int16Dbnull(cboUnit.SelectedValue)
+                            Dim Patient_ID As Int64
+                            'Try
+                            '    Ok = SPs.VskInsertPatientInfo(pid, name, birth, addr, Diagnostic, 0, idcanlamsang, DateTime.Now.ToString(), chucvu, nghenghiep, "",
+                            '                            CongDoan, CaKip, GioKham, tinhtuoinghe, Utility.Bool2byte(sex)).Execute()
+                            'Catch ex As Exception
+                            '    MessageBox.Show("Lỗi khi Thêm BN!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            'End Try
+
+                            'Patient_ID = getExactlyMaxID()
+                            patientId = InsertPatientInfo(pid, name, addr, sex, birth, dob, dtpInputDate.Value.Date, lotid, tinhtuoinghe, Utility.sDbnull(dr("Diagnostic")), nghenghiep, chucvu, idcanlamsang, CaKip, KhamDinhKy, GioKham, CongDoan, TuoiNghe)
                             dr("Check") = False
                         Loop Until (patientId <> -1) Or (++retry > 5)
                         If retry > 5 Then

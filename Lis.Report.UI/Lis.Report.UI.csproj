@@ -133,6 +133,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCaoChung\frm_BaoCaoDanhSachBenhNhan_TestTypeVSK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoChung\frm_BaoCaoDanhSachBenhNhan_TestTypeVSK.Designer.cs">
+      <DependentUpon>frm_BaoCaoDanhSachBenhNhan_TestTypeVSK.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoCaoChung\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSoGhiChep.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsTestResultPrint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTestResultPrint.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\dsTotalTestVNIO.cs">
       <DependentUpon>dsTotalTestVNIO.xsd</DependentUpon>
@@ -564,6 +575,17 @@
     <None Include="Datasets\dsSoGhiChep.xss">
       <DependentUpon>dsSoGhiChep.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\dsTestResultPrint.xsc">
+      <DependentUpon>dsTestResultPrint.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsTestResultPrint.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTestResultPrint.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dsTestResultPrint.xss">
+      <DependentUpon>dsTestResultPrint.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\dsTotalTestVNIO.xsc">
       <DependentUpon>dsTotalTestVNIO.xsd</DependentUpon>
     </None>
@@ -808,6 +830,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BaoCaoChung\frm_BaoCaoDanhSachBenhNhan_TestTypeVSK.resx">
+      <DependentUpon>frm_BaoCaoDanhSachBenhNhan_TestTypeVSK.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoChung\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -819,6 +844,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoChung\frm_BaoCaoDanhSachBenhNhan_TestType.resx">
       <DependentUpon>frm_BaoCaoDanhSachBenhNhan_TestType.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

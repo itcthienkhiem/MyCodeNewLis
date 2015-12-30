@@ -192,6 +192,7 @@
             this.dtCreatePrint.ShowUpDown = true;
             this.dtCreatePrint.Size = new System.Drawing.Size(175, 22);
             this.dtCreatePrint.TabIndex = 15;
+            this.dtCreatePrint.Value = new System.DateTime(2015, 12, 16, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -264,6 +265,7 @@
             this.dtpToDate.ShowUpDown = true;
             this.dtpToDate.Size = new System.Drawing.Size(175, 22);
             this.dtpToDate.TabIndex = 77;
+            this.dtpToDate.Value = new System.DateTime(2015, 12, 16, 0, 0, 0, 0);
             // 
             // dtpFromDate
             // 
@@ -278,6 +280,7 @@
             this.dtpFromDate.ShowUpDown = true;
             this.dtpFromDate.Size = new System.Drawing.Size(175, 22);
             this.dtpFromDate.TabIndex = 76;
+            this.dtpFromDate.Value = new System.DateTime(2015, 12, 16, 0, 0, 0, 0);
             // 
             // sysColor
             // 
@@ -335,7 +338,7 @@
             this.gridResult.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
             this.gridResult.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
             this.gridResult.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-            this.gridResult.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridResult.Font = new System.Drawing.Font("Arial", 8.25F);
             this.gridResult.FrozenColumns = 2;
             this.gridResult.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
             this.gridResult.GroupByBoxVisible = false;
@@ -346,7 +349,7 @@
             this.gridResult.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
             this.gridResult.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.True;
             this.gridResult.Size = new System.Drawing.Size(875, 259);
-            this.gridResult.TabIndex = 27;
+            this.gridResult.TabIndex = 28;
             // 
             // frm_BaoCaoDanhSachBenhNhan_TestType
             // 

@@ -29,6 +29,11 @@
               <xs:element name="AllResult2" msprop:Generator_ColumnVarNameInTable="columnAllResult2" msprop:Generator_ColumnPropNameInRow="AllResult2" msprop:Generator_ColumnPropNameInTable="AllResult2Column" msprop:Generator_UserColumnName="AllResult2" type="xs:string" minOccurs="0" />
               <xs:element name="Insurance_Num" msprop:Generator_ColumnVarNameInTable="columnInsurance_Num" msprop:Generator_ColumnPropNameInRow="Insurance_Num" msprop:Generator_ColumnPropNameInTable="Insurance_NumColumn" msprop:Generator_UserColumnName="Insurance_Num" type="xs:string" minOccurs="0" />
               <xs:element name="BarcodeXN" msprop:Generator_ColumnVarNameInTable="columnBarcodeXN" msprop:Generator_ColumnPropNameInRow="BarcodeXN" msprop:Generator_ColumnPropNameInTable="BarcodeXNColumn" msprop:Generator_UserColumnName="BarcodeXN" type="xs:string" minOccurs="0" />
+              <xs:element name="CongDoan" msprop:Generator_ColumnVarNameInTable="columnCongDoan" msprop:Generator_ColumnPropNameInRow="CongDoan" msprop:Generator_ColumnPropNameInTable="CongDoanColumn" msprop:Generator_UserColumnName="CongDoan" type="xs:string" minOccurs="0" />
+              <xs:element name="NgheNghiep" msprop:Generator_ColumnVarNameInTable="columnNgheNghiep" msprop:Generator_ColumnPropNameInRow="NgheNghiep" msprop:Generator_ColumnPropNameInTable="NgheNghiepColumn" msprop:Generator_UserColumnName="NgheNghiep" type="xs:string" minOccurs="0" />
+              <xs:element name="CaKip" msprop:Generator_ColumnVarNameInTable="columnCaKip" msprop:Generator_ColumnPropNameInRow="CaKip" msprop:Generator_ColumnPropNameInTable="CaKipColumn" msprop:Generator_UserColumnName="CaKip" type="xs:string" minOccurs="0" />
+              <xs:element name="ChucVu" msprop:Generator_ColumnVarNameInTable="columnChucVu" msprop:Generator_ColumnPropNameInRow="ChucVu" msprop:Generator_ColumnPropNameInTable="ChucVuColumn" msprop:Generator_UserColumnName="ChucVu" type="xs:string" minOccurs="0" />
+              <xs:element name="CanLamSang_ID" msprop:Generator_ColumnVarNameInTable="columnCanLamSang_ID" msprop:Generator_ColumnPropNameInRow="CanLamSang_ID" msprop:Generator_ColumnPropNameInTable="CanLamSang_IDColumn" msprop:Generator_UserColumnName="CanLamSang_ID" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

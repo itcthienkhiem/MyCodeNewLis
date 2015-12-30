@@ -3273,5 +3273,10 @@ namespace Vietbait.Lablink.TestInformation.UI.Forms
             }
         }
 
+        private void cmdSearch_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
